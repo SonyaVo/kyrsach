@@ -1,0 +1,333 @@
+
+body{
+  margin: 0;
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.55%;
+  
+}
+header{
+  background-color:#613A3D;
+  color: rgb(255, 255, 255);
+}
+
+.logo{
+  
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+hr {
+  border: none; /* Убираем границу */
+  background-color: rgb(255, 255, 255); /* Цвет линии */
+  color: rgb(255, 255, 255); /* Цвет линии для IE6-7 */
+  height: 2px; /* Толщина линии */
+ }
+
+.vk, .telegram,.youtube{
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+.names{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+.names h1{
+ 
+  margin: 0;
+  margin-top: 14px;
+  font-size: 52px;
+  font-weight:200;  
+}
+.names h3{
+  margin: 0;
+  font-size: 15px;
+  font-weight:100;
+  text-decoration: underline;  
+}
+
+.names h4{
+  margin: 0;
+  margin-top: 9px;
+  font-size: 13px;
+  font-weight: 200;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+
+  padding: 20px;
+
+}
+
+.nav a{
+  
+  color: #ffffff;
+  text-decoration: none;  
+  font-size: 20px;
+  font-weight:300;  
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cabinet a{
+  
+  color: #ffffff;
+  text-decoration: none;  
+  font-size: 20px;
+  font-weight:300;  
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.cabinet{
+  display: flex;
+ 
+  justify-content: center;
+  margin-left: 177px;
+  margin-right: 10px;
+  
+
+}
+
+.cont{
+  margin-top:24px ;
+  padding-bottom:24px ;
+  display: flex;
+  justify-content: center;
+}
+
+.mes{
+
+  margin-right: 223px;
+}
+
+hr{
+  margin: 0;
+}
+
+
+
+a:hover{
+  transition: color 0.5s, border-color 0, 5s;
+  color: #d2c385;
+}
+
+.text {
+  font-size: 2em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+  
+}
+
+
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+.text:nth-child(1) {
+  animation-delay: 0s;
+}
+.text:nth-child(2) {
+  animation-delay: 1s;
+}
+.text:nth-child(3) {
+  animation-delay: 2s;
+}
+
+
+b{
+ margin: auto;
+  text-align: center;
+  font-size: 38px;
+}
+
+
+.inf{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+
+
+
+
+
+
+
+
+/*Поле поиска на главной*/
+.search-form {
+
+  width: 1236px;
+  margin: auto;
+  margin-top: 50px;
+  
+}
+
+.search-field {
+  flex-grow: 1;
+  width: 1095px;
+  height: 44px;
+  border: 5px solid #e63946;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-size: 100%;
+  outline: none;
+}
+
+
+.search-btn {
+  width: 121px;
+  height: 44px;
+  margin-left: 10px;
+  
+  font-size: 100%;
+  font-weight: bold;
+  background-color: #e63946;
+  border: 5px solid #e63946;
+  border-left: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.search-btn:hover {
+  background-color: #F2F5F1;
+  color: black;
+}
+
+.search-form {
+  position: relative; /* Убедитесь, что родительский элемент имеет позиционирование */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.map-container {
+  width: 1000px; /* Занимает всю ширину окна*/ 
+  height: 1000px; /* Занимает всю высоту окна */
+  margin: auto;
+  margin-top: 500px;
+  overflow: hidden;
+  border: 2px solid #333;
+  position: relative;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.map img {
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: 100%; /* Занимает всю высоту контейнера */
+  object-fit: cover; /* Сохраняет пропорции изображения */
+}
+
+.map-button {
+  position: absolute;
+  top: 50%; /* Задаём позицию кнопки относительно изображения */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  .error {
+    border: 2px solid red;
+}
+
+.error-label {
+    color: red;
+}
+
+
+/* 
+.map-container {
+  position: relative;
+  width: 800px;
+  height: 800px; 
+  overflow: hidden;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.2s;
+  cursor: grab; 
+
+#mapImage {
+  width: 100%; 
+  height: auto;
+  object-fit: contain; 
+}
+
+.map-button {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #000;
+  cursor: pointer;
+  z-index: 10; 
+}
+
+#modalOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+#infoModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  z-index: 1001;
+  border: 1px solid #000;
+}  */
