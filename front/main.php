@@ -44,62 +44,24 @@ session_start(); // Начало сессии
             <div class="map">
                 <img src="../styles/images/карта без храмов.png" alt="Карта" id="mapImage">
                 <?php for ($i = 1; $i <= 10; $i++): ?>
-                    <button class="map-button" data-id="<?= $i ?>"
-                        style="top: <?= rand(10, 90) ?>%; left: <?= rand(10, 90) ?>%;">Храм <?= $i ?></button>
+                    <button class="map-button" data-id="<?= $i ?>" style="top: <?= rand(10, 90) ?>%; left: <?= rand(10, 90) ?>%;">Храм <?= $i ?></button>
                 <?php endfor; ?>
             </div>
         </div>
 
         <!-- Модальное окно -->
-        <div id="modalOverlay"></div>
-        <div id="infoModal">
+        <div id="modalOverlay" style="display:none;"></div>
+        <div id="infoModal" style="display:none;">
             <span class="close">&times;</span>
             <h3>Информация о храме</h3>
-            <div id="modalContent">
-                Загрузка данных...
-            </div>
+            <div id="modalContent">Загрузка данных...</div>
+            <button class="button">jjj</button>
         </div>
 
+        <!-- <style>
+        
 
-        * {
-        box-sizing: border-box;
-        }
-
-        body,
-        html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-        /* Отключаем прокрутку страницы */
-        }
-
-        .map-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        /* Занимает всю высоту окна */
-        overflow: hidden;
-        }
-
-        .map {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: transform 0.2s;
-        cursor: grab;
-        /* Указатель для перетаскивания */
-        }
-
-        .map-button {
-        position: absolute;
-        padding: 5px 10px;
-        background-color: rgba(255, 255, 255, 0.8);
-        border: 1px solid #000;
-        cursor: pointer;
-        z-index: 10;
-        /* Чтобы кнопки были поверх карты */
-        }
+        
 
         #modalOverlay {
         display: none;
@@ -123,7 +85,7 @@ session_start(); // Начало сессии
         z-index: 1001;
         border: 1px solid #000;
         }
-        </style> -->
+        </style>  -->
 
        
 
@@ -132,6 +94,7 @@ session_start(); // Начало сессии
 
     </footer>
     <script src="../js/search.js" defer></script>
+    <script src="../js/modalInfo.js" defer></script>
 </body>
 
 </html>

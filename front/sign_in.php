@@ -1,4 +1,4 @@
-<?php require 'bek/toSignIN.php'; ?>
+<?php require '../bek/toSignIN.php'; ?>
 
 <!DOCTYPE html>
 <html>

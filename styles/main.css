@@ -1,4 +1,4 @@
-body{
+/* body{
     margin: 0;
     font-family: "Oranienbaum", serif;
     letter-spacing: 1.55%;
@@ -20,10 +20,10 @@ header{
 }
 
 hr {
-    border: none; /* Убираем границу */
-    background-color: rgb(255, 255, 255); /* Цвет линии */
-    color: rgb(255, 255, 255); /* Цвет линии для IE6-7 */
-    height: 2px; /* Толщина линии */
+    border: none; /* Убираем границу 
+    background-color: rgb(255, 255, 255); /* Цвет линии 
+    color: rgb(255, 255, 255); /* Цвет линии для IE6-7 
+    height: 2px;  Толщина линии 
    }
 
 .vk, .telegram,.youtube{
@@ -213,3 +213,4 @@ b{
     border-radius: 5px;
     cursor: pointer;
 }
+ */

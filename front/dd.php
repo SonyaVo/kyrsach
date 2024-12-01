@@ -1,4 +1,4 @@
-<?php require 'bek/prob.php'; ?>
+<?php require '../bek/getInfoTemple.php'; ?>
 
 <!DOCTYPE html>
 <html lang="ru">

@@ -32,7 +32,7 @@
             const resultDiv = document.getElementById('result');
 
             try {
-                const response = await fetch('bek/get_user.php');
+                const response = await fetch('../bek/get_user.php');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -62,7 +62,7 @@
         // Запуск функции при загрузке страницы
         document.addEventListener('DOMContentLoaded', loadUserData);
     </script>
-    <a href="bek/log_out.php" class="logout-link">Log Out</a>
+    <a href="../bek/log_out.php" class="logout-link">Log Out</a>
 
 
     

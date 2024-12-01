@@ -32,8 +32,8 @@
             <?php if (isset($_SESSION['user_id'])): ?>
                 <a href="profile.php">Личный кабинет</a>
             <?php else: ?>
-                <a href="log_in.php">Войти/</a>
-                <a href="sign_in.php">Регистрация</a>
+                <a href="../front/log_in.php">Войти/</a>
+                <a href="../front/sign_in.php">Регистрация</a>
             <?php endif; ?>
         </div>
     </div>
