@@ -55,7 +55,7 @@ session_start(); // Начало сессии
             <span class="close">&times;</span>
             <h3>Информация о храме</h3>
             <div id="modalContent">Загрузка данных...</div>
-            <button class="button">jjj</button>
+            <!-- <button class="button">jjj</button> -->
         </div>
 
         <!-- <style>
@@ -95,6 +95,7 @@ session_start(); // Начало сессии
     </footer>
     <script src="../js/search.js" defer></script>
     <script src="../js/modalInfo.js" defer></script>
+    <script src="../js/voting.js" defer></script>
 </body>
 
 </html>
