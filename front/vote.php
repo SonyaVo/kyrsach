@@ -30,7 +30,6 @@ session_start(); // Начало сессии
         <ul id="temple-list"></ul>
     </main>
     <footer>
-
     </footer>
     <script src="../js/js.js" defer></script>
 

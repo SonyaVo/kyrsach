@@ -22,7 +22,7 @@
         <div class="nav">
             <a href="main.php">ГЛАВНАЯ</a>
             <a href="vote.php">ГОЛОСОВАНИЕ</a>
-            <a href="project.php">О ПРОЕКТЕ</a>
+            <!-- <a href="project.php">О ПРОЕКТЕ</a> -->
             <a href="about.php">О НАС</a>
             <a href="contact.php">КОНТАКТЫ</a>
         </div>

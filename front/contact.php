@@ -33,9 +33,8 @@ session_start(); // Начало сессии
         <h5>(звонки через мессенджер WhatsApp)</h5>
         <h3><a href="mailto:Info@archclassic-center.ru">Info@archclassic-center.ru</a></h3>
     </main>
-    <?php
-    include 'footer.php';
-    ?>
+    <footer>
+    </footer>
 </body>
 
 </html>
