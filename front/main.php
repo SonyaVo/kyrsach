@@ -18,7 +18,7 @@ session_start(); // Начало сессии
         rel="stylesheet">
 
 
-    <script src="../js/map.js" defer></script>
+    
 </head>
 
 <body>
@@ -42,7 +42,7 @@ session_start(); // Начало сессии
 
         <div class="map-container">
             <div class="map">
-                <img src="../styles/images/карта без храмов.png" alt="Карта" id="mapImage">
+                <img src="../styles/images/Карта храмов Москвы.png" alt="Карта" id="mapImage">
                 <?php for ($i = 1; $i <= 10; $i++): ?>
                     <button class="map-button" data-id="<?= $i ?>"
                         style="top: <?= rand(10, 90) ?>%; left: <?= rand(10, 90) ?>%;">Храм <?= $i ?></button>
@@ -142,6 +142,7 @@ session_start(); // Начало сессии
     <script src="../js/search.js" defer></script>
     <script src="../js/modalInfo.js" defer></script>
     <script src="../js/voting.js" defer></script>
+    <script src="../js/map.js" defer></script>
 </body>
 
 </html>

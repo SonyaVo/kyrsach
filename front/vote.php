@@ -18,7 +18,7 @@ session_start(); // Начало сессии
         rel="stylesheet">
 
 
-    <script src="../js/map.js" defer></script>
+   
 </head>
 
 <body>
@@ -27,14 +27,13 @@ session_start(); // Начало сессии
     ?>
 
     <main>
-
-
+        <ul id="temple-list"></ul>
     </main>
     <footer>
 
     </footer>
-    
+    <script src="../js/js.js" defer></script>
+
 </body>
 
 </html>
-
