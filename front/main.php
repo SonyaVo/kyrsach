@@ -17,8 +17,8 @@ session_start(); // Начало сессии
         href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Kosugi&family=Marmelad&family=Oranienbaum&display=swap"
         rel="stylesheet">
 
-        
-        <script src="../js/map.js" defer></script>
+
+    <script src="../js/map.js" defer></script>
 </head>
 
 <body>
@@ -34,8 +34,8 @@ session_start(); // Начало сессии
         </div>
 
         <div class="search-form">
-            <input type="text" class="search-field">
-            <button class="search-btn">Найти</button>
+            <input type="text" class="search-field" placeholder="Искать здесь....">
+            <button class="search-btn">ПОИСК</button>
             <div class="autocomplete-suggestions"></div>
 
         </div>
@@ -44,7 +44,8 @@ session_start(); // Начало сессии
             <div class="map">
                 <img src="../styles/images/карта без храмов.png" alt="Карта" id="mapImage">
                 <?php for ($i = 1; $i <= 10; $i++): ?>
-                    <button class="map-button" data-id="<?= $i ?>" style="top: <?= rand(10, 90) ?>%; left: <?= rand(10, 90) ?>%;">Храм <?= $i ?></button>
+                    <button class="map-button" data-id="<?= $i ?>"
+                        style="top: <?= rand(10, 90) ?>%; left: <?= rand(10, 90) ?>%;">Храм <?= $i ?></button>
                 <?php endfor; ?>
             </div>
         </div>
@@ -57,6 +58,51 @@ session_start(); // Начало сессии
             <div id="modalContent">Загрузка данных...</div>
             <!-- <button class="button">jjj</button> -->
         </div>
+
+
+
+        <div class="feedback">
+            <form action="../bek/feedback.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-label" for="surname">Фамилия</label>
+                    <input type="text" name="surname" id="surname" placeholder="Иванов Иван Иванович" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="name">Имя</label>
+                    <input type="text" name="name" id="name" placeholder="Иванов Иван Иванович" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="patronymic">Отчество</label>
+                    <input type="text" name="patronymic" id="patronymic" placeholder="Иванов Иван Иванович" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Почта</label>
+                    <input type="email" name="email" id="email" placeholder="ivanov@yandex.ru" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="form-label" for="category">Категория обращения</label>
+                    <select name="category" id="category">
+                        <option value="proposal">Предложение</option>
+                        <option value="grievance">Жалоба</option>
+
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="message">Текст сообщения</label>
+                    <textarea name="message" id="" cols="30" rows="10" placeholder="Введите сообщение"></textarea>
+                </div>
+                <input class="btn" type="submit" value="Отправить">
+            </form>
+        </div>
+
+        </>
 
         <!-- <style>
         
@@ -87,7 +133,7 @@ session_start(); // Начало сессии
         }
         </style>  -->
 
-       
+
 
     </main>
     <footer>

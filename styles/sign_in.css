@@ -1,0 +1,91 @@
+body{
+  margin: 0;
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.55%;
+    background-color: #613A3D;
+    display: flex;
+    justify-content: center; /* Центрирует по горизонтали */
+    align-items: center;
+
+  }
+  
+.cont{
+  margin-top: 67px;
+  margin-bottom: 67px;
+    background-color: #ffffff;
+    width: 745px;
+    height: 725px;
+    color: #000;
+    display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрирует по горизонтали */
+  align-items: center;
+
+  }
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрирует по горизонтали */
+    align-items: center;
+
+  
+}
+
+h1{
+  margin:0px;
+  padding-bottom: 41px;
+  text-align: center;
+}
+
+input{
+  width: 511px;
+  height: 30px;
+  border: 2px solid #613A3D;
+}
+input{
+  margin-bottom: 11px;
+}
+
+label{
+  font-size: 17px;
+  font-weight: 500;
+  padding-bottom: 11px;
+}
+
+.form-group{
+  width: 511px;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn{
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.55%;
+  font-size: 20px;
+  font-weight: 500;
+  width: 224px;
+  height: 43px;
+  margin-top: 36px;
+  margin-bottom: 0;
+  background-color: #613A3D;
+  color: #ffffff;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.error-label {
+  color: red;
+}
+
+
+.check{
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  border: 2px solid #613A3D;
+}
+

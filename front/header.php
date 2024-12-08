@@ -20,11 +20,11 @@
             <img src="../styles/images/vk.svg" alt="vk" class="vk" width="29px" height="29px">
         </div>
         <div class="nav">
-            <a href="">ГЛАВНАЯ</a>
-            <a href="">ГОЛОСОВАНИЕ</a>
-            <a href="">О ПРОЕКТЕ</a>
-            <a href="">О НАС</a>
-            <a href="">КОНТАКТЫ</a>
+            <a href="main.php">ГЛАВНАЯ</a>
+            <a href="vote.php">ГОЛОСОВАНИЕ</a>
+            <a href="project.php">О ПРОЕКТЕ</a>
+            <a href="about.php">О НАС</a>
+            <a href="contact.php">КОНТАКТЫ</a>
         </div>
 
         <div class="cabinet">
@@ -32,7 +32,7 @@
             <?php if (isset($_SESSION['user_id'])): ?>
                 <a href="profile.php">Личный кабинет</a>
             <?php else: ?>
-                <a href="../front/log_in.php">Войти/</a>
+                <a href="log_in.php">Войти/</a>
                 <a href="../front/sign_in.php">Регистрация</a>
             <?php endif; ?>
         </div>

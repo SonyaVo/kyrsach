@@ -123,7 +123,7 @@ hr{
 
 
 
-a:hover{
+.cont a:hover{
   transition: color 0.5s, border-color 0, 5s;
   color: #d2c385;
 }
@@ -179,18 +179,24 @@ b{
 
 /*Поле поиска на главной*/
 .search-form {
-
-  width: 1236px;
+  width: 1266px;
   margin: auto;
   margin-top: 50px;
   
 }
 
+.search-form input {
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.65%;
+  border: 3px solid #613A3D;
+  
+}
 .search-field {
+
   flex-grow: 1;
   width: 1095px;
-  height: 44px;
-  border: 5px solid #e63946;
+  height: 40px;
+  border: 3px solid #613A3D;
   box-sizing: border-box;
   padding: 0 20px;
   font-size: 100%;
@@ -199,25 +205,21 @@ b{
 
 
 .search-btn {
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.65%;
   width: 121px;
-  height: 44px;
-  margin-left: 10px;
+  height: 40px;
+  margin-left: 20px;
   
-  font-size: 100%;
-  font-weight: bold;
-  background-color: #e63946;
-  border: 5px solid #e63946;
-  border-left: none;
+  background-color: #613A3D;
+  border:1px #613A3D;
   color: white;
-  outline: none;
+  
   cursor: pointer;
   box-sizing: border-box;
 }
 
-.search-btn:hover {
-  background-color: #F2F5F1;
-  color: black;
-}
+
 
 .search-form {
   position: relative; /* Убедитесь, что родительский элемент имеет позиционирование */
@@ -329,55 +331,48 @@ b{
 .button:active {
     transform: scale(0.95); /* Уменьшение кнопки при нажатии */
 }
-/* 
-.map-container {
-  position: relative;
-  width: 800px;
-  height: 800px; 
-  overflow: hidden;
+
+
+
+
+/* контакты */
+.contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight:lighter;
+  text-align: center;
+  margin-top: 30px;
+ 
+ 
 }
 
-.map {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: transform 0.2s;
-  cursor: grab; 
-
-#mapImage {
-  width: 100%; 
-  height: auto;
-  object-fit: contain; 
+.contact a{
+text-decoration: none;
+color: #000;
 }
 
-.map-button {
-  position: absolute;
-  padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid #000;
-  cursor: pointer;
-  z-index: 10; 
+.contact a:hover{
+  color: #613A3D; /*rgb(74, 8, 23)она при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
+  }
+
+.contact h2,h3{
+  font-weight: 550;
+  line-height: 1.5;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
-#modalOverlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+
+
+.contact h5{
+  font-weight: 550;
+  line-height: 1.5;
+  margin-top: 0px;
+  margin-bottom: 0;
 }
 
-#infoModal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  z-index: 1001;
-  border: 1px solid #000;
-}  */
+
+
+
