@@ -1,23 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Это поможет избежать проблем с размерами элементов */
+}
 
-body{
+body {
   margin: 0;
   padding: 0;
   font-family: "Oranienbaum", serif;
   letter-spacing: 1.55%;
-  
+
 }
-header{
-  background-color:#613A3D;
-  color: rgb(255, 255, 255);
-}
-footer{
-  height: 120px;
-  background-color:#613A3D;
+
+header {
+  background-color: #613A3D;
   color: rgb(255, 255, 255);
 }
 
-.logo{
-  
+footer {
+  height: 120px;
+  background-color: #613A3D;
+  color: rgb(255, 255, 255);
+}
+
+.logo {
+
   width: 100px;
   height: 100px;
   margin-top: 5px;
@@ -26,19 +34,25 @@ footer{
 }
 
 hr {
-  border: none; /* Убираем границу */
-  background-color: rgb(255, 255, 255); /* Цвет линии */
-  color: rgb(255, 255, 255); /* Цвет линии для IE6-7 */
-  height: 2px; /* Толщина линии */
- }
+  border: none;
+  /* Убираем границу */
+  background-color: rgb(255, 255, 255);
+  /* Цвет линии */
+  color: rgb(255, 255, 255);
+  /* Цвет линии для IE6-7 */
+  height: 2px;
+  /* Толщина линии */
+}
 
-.vk, .telegram,.youtube{
+.vk,
+.telegram,
+.youtube {
   margin-left: 10px;
   width: 25px;
   height: 25px;
 }
 
-.names{
+.names {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,28 +62,29 @@ hr {
   padding-right: 20px
 }
 
-.names h1{
- 
+.names h1 {
+
   margin: 0;
   margin-top: 14px;
   font-size: 52px;
-  font-weight:200;  
-}
-.names h3{
-  margin: 0;
-  font-size: 15px;
-  font-weight:100;
-  text-decoration: underline;  
+  font-weight: 200;
 }
 
-.names h4{
+.names h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 100;
+  text-decoration: underline;
+}
+
+.names h4 {
   margin: 0;
   margin-top: 9px;
   font-size: 13px;
   font-weight: 200;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: center;
 
@@ -77,59 +92,61 @@ hr {
 
 }
 
-.nav a{
-  
+.nav a {
+
   color: #ffffff;
-  text-decoration: none;  
+  text-decoration: none;
   font-size: 20px;
-  font-weight:300;  
+  font-weight: 300;
   margin-left: 30px;
   margin-right: 30px;
 }
-.nav{
+
+.nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.cabinet a{
-  
+.cabinet a {
+
   color: #ffffff;
-  text-decoration: none;  
+  text-decoration: none;
   font-size: 20px;
-  font-weight:300;  
+  font-weight: 300;
   margin-left: 0px;
   margin-right: 0px;
 }
-.cabinet{
+
+.cabinet {
   display: flex;
- 
+
   justify-content: center;
   margin-left: 177px;
   margin-right: 10px;
-  
+
 
 }
 
-.cont{
-  margin-top:24px ;
-  padding-bottom:24px ;
+.cont {
+  margin-top: 24px;
+  padding-bottom: 24px;
   display: flex;
   justify-content: center;
 }
 
-.mes{
+.mes {
 
   margin-right: 223px;
 }
 
-hr{
+hr {
   margin: 0;
 }
 
 
 
-.cont a:hover{
+.cont a:hover {
   transition: color 0.5s, border-color 0, 5s;
   color: #d2c385;
 }
@@ -139,40 +156,43 @@ hr{
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 1s forwards;
-  
+
 }
 
 
 
 @keyframes fadeIn {
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
 .text:nth-child(1) {
   animation-delay: 0s;
 }
+
 .text:nth-child(2) {
   animation-delay: 1s;
 }
+
 .text:nth-child(3) {
   animation-delay: 2s;
 }
 
 
-b{
- margin: auto;
+b {
+  margin: auto;
   text-align: center;
   font-size: 38px;
 }
 
 
-.inf{
+.inf {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 
@@ -189,15 +209,16 @@ b{
   width: 1266px;
   margin: auto;
   margin-top: 50px;
-  
+
 }
 
 .search-form input {
   font-family: "Oranienbaum", serif;
   letter-spacing: 1.65%;
   border: 3px solid #613A3D;
-  
+
 }
+
 .search-field {
 
   flex-grow: 1;
@@ -217,11 +238,11 @@ b{
   width: 121px;
   height: 40px;
   margin-left: 20px;
-  
+
   background-color: #613A3D;
-  border:1px #613A3D;
+  border: 1px #613A3D;
   color: white;
-  
+
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -229,7 +250,8 @@ b{
 
 
 .search-form {
-  position: relative; /* Убедитесь, что родительский элемент имеет позиционирование */
+  position: relative;
+  /* Убедитесь, что родительский элемент имеет позиционирование */
 }
 
 
@@ -246,8 +268,10 @@ b{
 
 
 .map-container {
-  width: 1000px; /* Занимает всю ширину окна*/ 
-  height: 1000px; /* Занимает всю высоту окна */
+  width: 1000px;
+  /* Занимает всю ширину окна*/
+  height: 1000px;
+  /* Занимает всю высоту окна */
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -264,14 +288,18 @@ b{
 }
 
 .map img {
-  width: 100%; /* Занимает всю ширину контейнера */
-  height: 100%; /* Занимает всю высоту контейнера */
-  object-fit: cover; /* Сохраняет пропорции изображения */
+  width: 100%;
+  /* Занимает всю ширину контейнера */
+  height: 100%;
+  /* Занимает всю высоту контейнера */
+  object-fit: cover;
+  /* Сохраняет пропорции изображения */
 }
 
 .map-button {
   position: absolute;
-  top: 50%; /* Задаём позицию кнопки относительно изображения */
+  top: 50%;
+  /* Задаём позицию кнопки относительно изображения */
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: red;
@@ -281,62 +309,55 @@ b{
   border-radius: 5px;
   cursor: pointer;
 }
-  .error {
-    border: 2px solid red;
+
+.error {
+  border: 2px solid red;
 }
 
 .error-label {
-    color: red;
+  color: red;
 }
 
 
-#modalOverlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  }
-
-  #infoModal {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  z-index: 1001;
-  border: 1px solid #000;
-  }
 
 
-
-  .button {
-    display: inline-block; /* Позволяет кнопке вести себя как блочный элемент */
-    padding: 12px 24px; /* Отступы внутри кнопки */
-    background-color: #007BFF; /* Цвет фона */
-    color: white; /* Цвет текста */
-    border: none; /* Убираем рамку */
-    border-radius: 5px; /* Закругленные углы */
-    font-size: 16px; /* Размер шрифта */
-    font-weight: bold; /* Жирный шрифт */
-    text-align: center; /* Выравнивание текста по центру */
-    text-decoration: none; /* Убираем подчеркивание */
-    cursor: pointer; /* Указатель при наведении */
-    transition: background-color 0.3s, transform 0.2s; /* Плавные переходы */
+.button {
+  display: inline-block;
+  /* Позволяет кнопке вести себя как блочный элемент */
+  padding: 12px 24px;
+  /* Отступы внутри кнопки */
+  background-color: #007BFF;
+  /* Цвет фона */
+  color: white;
+  /* Цвет текста */
+  border: none;
+  /* Убираем рамку */
+  border-radius: 5px;
+  /* Закругленные углы */
+  font-size: 16px;
+  /* Размер шрифта */
+  font-weight: bold;
+  /* Жирный шрифт */
+  text-align: center;
+  /* Выравнивание текста по центру */
+  text-decoration: none;
+  /* Убираем подчеркивание */
+  cursor: pointer;
+  /* Указатель при наведении */
+  transition: background-color 0.3s, transform 0.2s;
+  /* Плавные переходы */
 }
 
 .button:hover {
-    background-color: #0056b3; /* Цвет фона при наведении */
-    transform: scale(1.05); /* Увеличение кнопки при наведении */
+  background-color: #0056b3;
+  /* Цвет фона при наведении */
+  transform: scale(1.05);
+  /* Увеличение кнопки при наведении */
 }
 
 .button:active {
-    transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+  transform: scale(0.95);
+  /* Уменьшение кнопки при нажатии */
 }
 
 
@@ -345,27 +366,27 @@ b{
 
 
 /* обратная связь */
-.feedback{
- padding-top: 54px;
- padding-bottom: 60px;
-  
-  background-color: #D9D9D9;  
+.feedback {
+  padding-top: 54px;
+  padding-bottom: 60px;
+
+  background-color: #D9D9D9;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 
-.feedback h2{
- margin: 0;
+.feedback h2 {
+  margin: 0;
   font-size: 27px;
-  
- 
+
+
 
 }
 
 
-.feedback .header{
+.feedback .header {
   margin: 0;
   height: 40px;
   width: 100%;
@@ -375,34 +396,37 @@ b{
   align-items: center
 }
 
-.feedback .header hr{
-  m;
+.feedback .header hr {
+
   width: 592px;
-  border: none; /* Убираем границу */
-  background-color: #613A3D; /* Цвет линии */
-  color: #613A3D; /* Цвет линии для IE6-7 */
-  height: 2px; 
+  border: none;
+  /* Убираем границу */
+  background-color: #613A3D;
+  /* Цвет линии */
+  color: #613A3D;
+  /* Цвет линии для IE6-7 */
+  height: 2px;
 }
 
-.feedback .fid_cont{
+.feedback .fid_cont {
   width: 1136px;
   height: 695px;
-   
+
   display: flex;
   flex-direction: row;
 
 
-  
+
 }
 
-.feedback p{
+.feedback p {
   margin: 0;
   font-size: 27px;
   padding-top: 72px;
   padding-right: 130px;
 }
 
-.feedback label{
+.feedback label {
   font-size: 20px;
   text-align: left;
   stroke: #000;
@@ -410,22 +434,25 @@ b{
   margin-bottom: 8px;
 }
 
-.feedback input, textarea{
+.feedback input,
+textarea {
   margin: 0;
+  padding-left: 10px;
   font-size: 15px;
-  border:2px solid #613A3D;
-  
+  border: 2px solid #613A3D;
+
   font-family: "Oranienbaum", serif;
   letter-spacing: 1.55%;
   margin-bottom: 20px;
-  
+
 }
 
-.feedback form{
+.feedback form {
   padding-top: 24px;
 }
 
-form, .form-group{
+form,
+.form-group {
   display: flex;
   flex-direction: column;
 }
@@ -435,13 +462,13 @@ form, .form-group{
   height: 30px;
 }
 
-.feedback textarea{
+.feedback textarea {
   width: 538px;
   height: 170px;
-   margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.feedback .btn{
+.feedback .btn {
   width: 276px;
   height: 60px;
   margin: auto;
@@ -457,29 +484,32 @@ form, .form-group{
 
 
 /* контакты */
-.contact{
+.contact {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-weight:lighter;
+  font-weight: lighter;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 50px;
- 
- 
+
+
 }
 
-.contact a{
-text-decoration: none;
-color: #000;
+.contact a {
+  text-decoration: none;
+  color: #000;
 }
 
-.contact a:hover{
-  color: #613A3D; /*rgb(74, 8, 23)она при наведении */
-  transform: scale(1.05); /* Увеличение кнопки при наведении */
-  }
+.contact a:hover {
+  color: #613A3D;
+  /*rgb(74, 8, 23)она при наведении */
+  transform: scale(1.05);
+  /* Увеличение кнопки при наведении */
+}
 
-.contact h2,h3{
+.contact h2,
+h3 {
   font-weight: 550;
   line-height: 1.5;
   margin-top: 20px;
@@ -488,7 +518,7 @@ color: #000;
 
 
 
-.contact h5{
+.contact h5 {
   font-weight: 550;
   line-height: 1.5;
   margin-top: 0px;
@@ -512,17 +542,146 @@ li {
   justify-content: space-between;
 }
 
-button {
-  background: #28a745;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+
+
+
+/* модальное окно */
+
+.infoModal {
+  margin: 0;
+  padding: 0;
+  width: 775px;
+
 }
 
-button:hover {
-  background: #218838;
+.modalContent {
+
+  background-color: #D9D9D9;
+}
+
+.modalContent header {
+  height: 69px;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  background-color: #613A3D;
+  color: #ffffff;
+
+
+}
+
+.modalContent header h1 {
+  text-transform: uppercase;
+
+  font-weight: 300;
+
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 23px;
+  text-align: center;
+
+  font-size: 20px;
+
+}
+
+.modalContent .body {
+  background-color: #D9D9D9;
+  border: 35px solid #EBEBEB;
+  padding: 30px;
+
+
+}
+
+.modalContent .info {
+  font-size: 18px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.modalContent .body img {
+  object-fit: contain;
+  margin-right: 30px;
+
+
 }
 
 
+.modalContent .body .verx {
+
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.modalContent .body .nis h2 {
+  margin-top: 20px;
+  font-weight: 500px;
+  font-size: 20px;
+
+}
+
+
+.modalContent .body .nis .opisanie {
+  margin-top: 20px;
+  font-size: 18px;
+
+}
+
+
+.infoModal .vote {
+
+  
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoModal .vote .btn {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  width: 215px;
+  height: 43px;
+  background-color: #613A3D;
+  border:1px solid  #613A3D;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 300px;
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.55%;
+
+}
+
+
+
+
+
+
+
+
+
+#modalOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+#infoModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #EBEBEB;
+
+  z-index: 1001;
+
+}

@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Утраченные храмы</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,11 +40,12 @@
         </div>
 
         <!-- Модальное окно -->
-        <div id="modalOverlay" style="display:none;"></div>
-        <div id="infoModal" style="display:none;">
-            <span class="close">&times;</span>
-            <h3>Информация о храме</h3>
-            <div id="modalContent">Загрузка данных...</div>
+        <div class="modalOverlay" id="modalOverlay" ></div>
+        <div class="infoModal" id="infoModal" >
+            <!-- <span class="close">&times;</span> -->
+            <!-- <h3>Информация о храме</h3> -->
+            <div class="modalContent" id="modalContent">Загрузка данных...</div>
+            <div class="vote" id="vote"></div>
         </div>
 
         <div class="feedback">
