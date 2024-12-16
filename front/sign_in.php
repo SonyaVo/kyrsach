@@ -23,11 +23,16 @@
 
         <div class="text-centre">
             <?php if ($signMessage): ?>
-                <p><?php echo $signMessage; ?></p>
-                <!-- Кнопка "Войти", которая появится только если регистрация успешна -->
-                <a href="log_in.php" class="btn">Войти</a>
-            <?php else: echo $signMessage
-                ?>
+
+                <div class="h">
+                    <p><?php echo $signMessage; ?></p>
+
+                    <a href="log_in.php">Войти</a>
+                </div>
+
+            <?php else:
+                echo $signMessage
+                    ?>
                 <!-- Форма регистрации -->
                 <form id="registrationForm" method="POST" enctype="multipart/form-data">
                     <div class="form-group">

@@ -40,8 +40,8 @@
         </div>
 
         <!-- Модальное окно -->
-        <div class="modalOverlay" id="modalOverlay" ></div>
-        <div class="infoModal" id="infoModal" >
+        <div class="modalOverlay" id="modalOverlay"></div>
+        <div class="infoModal" id="infoModal">
             <!-- <span class="close">&times;</span> -->
             <!-- <h3>Информация о храме</h3> -->
             <div class="modalContent" id="modalContent">Загрузка данных...</div>
@@ -66,18 +66,17 @@
                 <form id="feedbackForm" action="../bek/feedback.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="form-label" for="surname">Фамилия</label>
-                        <input type="text" name="surname" id="surname" placeholder="Иванов Иван Иванович" required>
+                        <input type="text" name="surname" id="surname" placeholder="Иванов" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="name">Имя</label>
-                        <input type="text" name="name" id="name" placeholder="Иванов Иван Иванович" required>
+                        <input type="text" name="name" id="name" placeholder="Иван" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="patronymic">Отчество</label>
-                        <input type="text" name="patronymic" id="patronymic" placeholder="Иванов Иван Иванович"
-                            required>
+                        <input type="text" name="patronymic" id="patronymic" placeholder="Иванович">
                     </div>
 
                     <div class="form-group">

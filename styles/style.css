@@ -510,7 +510,7 @@ form,
 
 .contact h2,
 h3 {
-  font-weight: 550;
+  font-weight: 400;
   line-height: 1.5;
   margin-top: 20px;
   margin-bottom: 0;
@@ -519,7 +519,7 @@ h3 {
 
 
 .contact h5 {
-  font-weight: 550;
+  font-weight: 400;
   line-height: 1.5;
   margin-top: 0px;
   margin-bottom: 0;
@@ -640,7 +640,7 @@ li {
   align-items: center;
 }
 
-.infoModal .vote .btn {
+.infoModal .vote button {
   margin-top: 20px;
   margin-bottom: 40px;
   width: 215px;
@@ -652,11 +652,41 @@ li {
   font-weight: 300px;
   font-family: "Oranienbaum", serif;
   letter-spacing: 1.55%;
+  
 
 }
 
+.infoModal .vote button:hover {
+  background-color: #7A4B4E; /* Цвет фона при наведении */
+  transform: scale(1.05); /* Увеличение кнопки при наведении */
+}
+
+.infoModal .vote button:active {
+  transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+}
+
+.infoModal .vote .notAut{
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
+.infoModal {
+  margin: 0;
+  padding: 0;
+  width: 775px;
+  max-width: 90%; /* Ограничение ширины */
+  max-height: 90%; /* Ограничение высоты */
+  overflow: auto; /* Добавление прокрутки, если содержимое превышает размеры */
+}
+
+/* .modalContent {
+  background-color: #D9D9D9;
+  max-height: 80vh; /* Ограничение высоты 
+  /* overflow-y: auto; Вертикальная прокрутка 
+} */
 
 
 
@@ -684,4 +714,108 @@ li {
 
   z-index: 1001;
 
+}
+
+
+
+/* профиль */
+
+.profile .info img{
+  background-color: #613A3D;
+}
+
+
+.image-container {
+  margin-left: 102px;
+  margin-top: 50px;
+  width: 359px; /* Ширина контейнера */
+  height: 324px; /* Высота контейнера */
+  background-color: #d39292; /* Цвет фона контейнера */
+  /* Центрируем по вертикали */
+}
+
+.image-container img {
+  max-width: 100%; /* Ограничиваем ширину изображения */
+  max-height: 100%; /* Ограничиваем высоту изображения */
+  display: block; /* Убираем пробелы под изображением */
+}
+
+.profile{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+  /* justify-content:space-around; */
+ 
+  
+}
+
+.profile .info{
+  margin-left: 64px;
+  margin-top: 67px;
+}
+
+.profile .info p{
+  margin-bottom: 37px;
+  background-color: #F2F2F2;
+  width: 547px;
+
+}
+
+
+.profile .user-info strong{
+  color: #5F5F5F;
+  font-size: 18px;
+  background-color: #fff;
+  padding-right: 10px;
+ 
+}
+
+.profile a{
+  margin-top: 37px;
+  color: #613A3D;
+}
+
+.profile .fun{
+  margin-left: 138px;
+  margin-top: 27px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* .foot_prof {
+  position: fixed; /Фиксированное позиционирование 
+  bottom: 0;  Прикрепить к нижней части окна 
+  left: 0; / Прикрепить к левой части окна 
+  right: 0; / Прикрепить к правой части окна 
+  background-color: #613A3D; /* Пример цвета фона для футера 
+  text-align: center; / Выравнивание текста по центру 
+  padding: 10px; / Отступы для футера 
+}  */
+
+
+
+/* html, body {
+  height: 100%; 
+  margin: 0; 
+}
+  */
+body {
+  display: flex;
+  flex-direction: column;
+}
+  
+
+main {
+  flex: 1; /* Основной контент занимает оставшееся пространство */
+ 
+ 
+} 
+
+footer {
+  height: 120px;
+  background-color:#613A3D; /* Optional: Set a background color */
+  display: flex; /* Optional: Use flexbox for alignment */
+  align-items: center; /* Optional: Center content vertically */
+  justify-content: center; /* Optional: Center content horizontally */
 }

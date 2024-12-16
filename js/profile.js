@@ -14,7 +14,7 @@ async function loadUserData() {
             const user = data.data;
             resultDiv.innerHTML = `
                 <div class="user-info">
-                    <h2>User Information</h2>
+                    
                     <p><strong>Фамилия:</strong> ${user.surname}</p>
                     <p><strong>Имя:</strong> ${user.name}</p>
                     <p><strong>Отчество:</strong> ${user.patronymic}</p>

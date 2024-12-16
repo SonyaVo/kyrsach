@@ -2,10 +2,10 @@
 session_start();
 include 'db.php'; // Подключение к базе данных
 
-// Включаем отображение ошибок для отладки
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Включаем отображение ошибок для отладки (только для разработки)
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 // Устанавливаем заголовок для JSON
 header('Content-Type: application/json');
@@ -17,8 +17,8 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Проверяем, передан ли ID храма
-if (!isset($_POST['id_temple'])) {
-    echo json_encode(['success' => false, 'message' => 'ID храма не передан.']);
+if (!isset($_POST['id_temple']) || !filter_var($_POST['id_temple'], FILTER_VALIDATE_INT)) {
+    echo json_encode(['success' => false, 'message' => 'ID храма не передан или некорректен.']);
     exit;
 }
 
@@ -53,6 +53,8 @@ try {
         echo json_encode(['success' => false, 'message' => 'Ошибка при записи голоса.']);
     }
 } catch (PDOException $e) {
-    echo json_encode(['success' => false, 'message' => 'Ошибка базы данных: ' . $e->getMessage()]);
+    // Логируем ошибку на сервере
+    error_log($e->getMessage());
+    echo json_encode(['success' => false, 'message' => 'Ошибка базы данных. Пожалуйста, попробуйте позже.']);
 }
 ?>

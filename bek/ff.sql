@@ -16,6 +16,18 @@ CREATE TABLE voting(
 );
 
 
+DELIMITER //
+
+CREATE PROCEDURE GetTemplesWithVoteCount()
+BEGIN
+    SELECT lt.id, lt.название, COUNT(v.id) AS vote_count 
+    FROM lost_tempels lt 
+    LEFT JOIN voting v ON lt.id = v.id_temple 
+    GROUP BY lt.id;
+END //
+
+DELIMITER ;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/

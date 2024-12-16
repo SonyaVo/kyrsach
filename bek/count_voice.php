@@ -4,20 +4,20 @@ session_start(); // Начало сессии
 // Подключение к базе данных
 require 'db.php'; // Включаем файл подключения
 
-// Получение данных о храмах и количестве голосов
-$sql = "SELECT lt.id, lt.название, COUNT(v.id) AS vote_count 
-        FROM lost_tempels lt 
-        LEFT JOIN voting v ON lt.id = v.id_temple 
-        GROUP BY lt.id";
-
 try {
-    $stmt = $pdo->query($sql);
+    // Подготовка вызова хранимой процедуры
+    $stmt = $pdo->prepare("CALL GetTemplesWithVoteCount()");
+    $stmt->execute();
+    
+    // Получение данных
     $temples = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Возвращаем данные в формате JSON
     header('Content-Type: application/json');
     echo json_encode($temples);
 } catch (PDOException $e) {
+    // Возвращаем ошибку в формате JSON
+    header('Content-Type: application/json', true, 500); // Устанавливаем код ответа 500
     echo json_encode(['error' => 'Ошибка выполнения запроса: ' . $e->getMessage()]);
 }
 ?>

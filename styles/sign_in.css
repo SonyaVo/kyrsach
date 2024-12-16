@@ -89,3 +89,39 @@ label{
   border: 2px solid #613A3D;
 }
 
+
+/* Добавьте это в ваш файл sign_in.css */
+html, body {
+  height: 100%; /* Устанавливаем высоту на 100% */
+  margin: 0; /* Убираем отступы */
+  display: flex; /* Используем Flexbox для вертикального центрирования */
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали */
+ 
+}
+
+.h{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрирует по горизонтали */
+    align-items: center;
+
+  
+}
+a{
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.55%;
+  font-size: 20px;
+  font-weight: 500;
+  width: 224px;
+  
+  margin-top: 36px;
+  margin-bottom: 0;
+  background-color: #613A3D;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+

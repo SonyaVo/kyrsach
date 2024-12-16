@@ -30,6 +30,7 @@ checkAuthentication().then(() => {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
+
                         // Если данные успешно получены, отображаем их в модальном окне
                         modalContent.innerHTML = `
                         <header>
@@ -56,21 +57,67 @@ checkAuthentication().then(() => {
 
     </div>
                     `;
+
                         // Добавляем кнопку, если пользователь авторизован
                         if (isAuthenticated) {
-                             vote.innerHTML = '';
+
+                            vote.innerHTML = '';
                             vote.innerHTML += `
                             <p>Проголосуйте за восстановление храма! Ваш голосо очень важен для нас!</p>
-                            <button class="btn" id="voteButton">ГОЛОСОВАТЬ</button>
-                        `;
+                            <button сlass="btn" id="voteButton">ГОЛОСОВАТЬ</button>`;
+                            console.log(vote.innerHTML)
+
+                        }
+                        else {
+                            // console.log(11111111)
+                            // vote.innerHTML = `<p>${data.message}</p>`;
+
+                            vote.innerHTML = `<p class="notAut">Авторизуйтесь или зарегистрируйтесь, чтоб иметь возможность проголосовать за восстановление храма!</p>`;
+                            console.log(vote.innerHTML);
+
+                        }
+                        modal.style.display = 'block'; // Показываем модальное окно
+                        overlay.style.display = 'block'; // Показываем оверлей
+
+                        // Обработчик клика на кнопку голосования
+                        const voteButton = document.getElementById('voteButton');
+                        if (voteButton) {
+                            voteButton.addEventListener('click', () => {
+                                console.log('Голосование начато для ID храма:', ssId);
+                                fetch('../bek/voting.php', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                    },
+                                    body: `id_temple=${encodeURIComponent(ssId)}`
+                                })
+                                    .then(response => {
+                                        if (!response.ok) {
+                                            throw new Error('Сеть ответила с ошибкой: ' + response.status);
+                                        }
+                                        return response.json(); // Парсим ответ как JSON
+                                    })
+                                    .then(data => {
+                                        console.log('Ответ от сервера:', data); // Логируем ответ от сервера
+                                        if (data.success) {
+                                            alert(data.message); // Показываем сообщение об успешном голосовании
+                                            const successMessage = document.createElement('p');
+                                            successMessage.textContent = 'Ваш голос успешно учтен!';
+                                            modalContent.appendChild(successMessage); // Добавляем сообщение в модальное окно
+                                            voteButton.remove(); // Удаляем кнопку голосования
+                                        } else {
+                                            alert(data.message); // Показываем сообщение об ошибке
+                                        }
+                                    })
+                                    .catch(err => {
+                                        console.error('Ошибка при голосовании:', err);
+                                        alert('Произошла ошибка при голосовании. Пожалуйста, попробуйте еще раз.');
+                                    });
+                            });
                         }
 
-                    } else {
-                        // vote.innerHTML = `<p>${data.message}</p>`;
-                        vote.innerHTML = `<p>Авторизуйтесь или зарегистрируйтесь, чтоб иметь возможность проголосовать за восстановление храма!</p>`;
+
                     }
-                    modal.style.display = 'block'; // Показываем модальное окно
-                    overlay.style.display = 'block'; // Показываем оверлей
                 })
                 .catch(err => {
                     modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';

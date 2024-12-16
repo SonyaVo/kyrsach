@@ -12,7 +12,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
         // Отображаем сообщение об успешной отправке
         document.getElementById('responseMessage').innerText = data;
         document.getElementById('responseMessage').style.display = 'block';
-        // this.reset(); // Сбрасываем форму
+        this.reset(); // Сбрасываем форму
     })
     .catch(error => {
         console.error('Ошибка:', error);
