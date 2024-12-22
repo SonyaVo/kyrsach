@@ -1,0 +1,117 @@
+
+
+/* обратная связь */
+.feedback {
+    padding-top: 54px;
+    padding-bottom: 60px;
+  
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .feedback h2 {
+    margin: 0;
+    font-size: 27px;
+  
+  
+  
+  }
+  
+  
+  .feedback .header {
+    margin: 0;
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center
+  }
+  
+  .feedback .header hr {
+  
+    width: 592px;
+    border: none;
+    /* Убираем границу */
+    background-color: #613A3D;
+    /* Цвет линии */
+    color: #613A3D;
+    /* Цвет линии для IE6-7 */
+    height: 2px;
+  }
+  
+  .feedback .fid_cont {
+    width: 1136px;
+    height: 695px;
+  
+    display: flex;
+    flex-direction: row;
+  
+  
+  
+  }
+  
+  .feedback p {
+    margin: 0;
+    font-size: 27px;
+    padding-top: 72px;
+    padding-right: 130px;
+  }
+  
+  .feedback label {
+    font-size: 20px;
+    text-align: left;
+    stroke: #000;
+    stroke-width: 2px;
+    margin-bottom: 8px;
+  }
+  
+  .feedback input,
+  textarea {
+    margin: 0;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 2px solid #613A3D;
+  
+    font-family: "Oranienbaum", serif;
+    letter-spacing: 1.55%;
+    margin-bottom: 20px;
+  
+  }
+  
+  .feedback form {
+    padding-top: 24px;
+  }
+  
+  form,
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback input {
+    width: 538px;
+    height: 30px;
+  }
+  
+  .feedback textarea {
+    width: 538px;
+    height: 170px;
+    margin-bottom: 20px;
+  }
+  
+  .feedback .btn {
+    width: 276px;
+    height: 60px;
+    margin: auto;
+    color: #ffffff;
+    background-color: #613A3D;
+    font-size: 27px;
+  }
+  
+  
+  
+  

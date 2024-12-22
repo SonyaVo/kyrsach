@@ -1,0 +1,103 @@
+
+
+
+
+
+
+.map-container {
+  width: 1000px;
+  /* Занимает всю ширину окна*/
+  height: 1000px;
+  /* Занимает всю высоту окна */
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  overflow: hidden;
+  border: 2px solid #333;
+  position: relative;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.map img {
+  width: 100%;
+  /* Занимает всю ширину контейнера */
+  height: 100%;
+  /* Занимает всю высоту контейнера */
+  object-fit: cover;
+  /* Сохраняет пропорции изображения */
+}
+
+.map-button {
+  position: absolute;
+  top: 50%;
+  /* Задаём позицию кнопки относительно изображения */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.error-label {
+  color: red;
+}
+
+
+
+
+.button {
+  display: inline-block;
+  /* Позволяет кнопке вести себя как блочный элемент */
+  padding: 12px 24px;
+  /* Отступы внутри кнопки */
+  background-color: #007BFF;
+  /* Цвет фона */
+  color: white;
+  /* Цвет текста */
+  border: none;
+  /* Убираем рамку */
+  border-radius: 5px;
+  /* Закругленные углы */
+  font-size: 16px;
+  /* Размер шрифта */
+  font-weight: bold;
+  /* Жирный шрифт */
+  text-align: center;
+  /* Выравнивание текста по центру */
+  text-decoration: none;
+  /* Убираем подчеркивание */
+  cursor: pointer;
+  /* Указатель при наведении */
+  transition: background-color 0.3s, transform 0.2s;
+  /* Плавные переходы */
+}
+
+.button:hover {
+  background-color: #0056b3;
+  /* Цвет фона при наведении */
+  transform: scale(1.05);
+  /* Увеличение кнопки при наведении */
+}
+
+.button:active {
+  transform: scale(0.95);
+  /* Уменьшение кнопки при нажатии */
+}
+
+
+
+
+

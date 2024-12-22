@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id'])) {
 
     // Выполняем запрос к базе данных
     try {
-        $stmt = $pdo->prepare('SELECT id, surname, name, patronymic, email FROM users WHERE id = :id');
+        $stmt = $pdo->prepare('SELECT id, surname, name, patronymic, email,phone FROM users WHERE id = :id');
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->execute();
 

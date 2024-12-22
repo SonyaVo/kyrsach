@@ -1,0 +1,65 @@
+
+/* профиль */
+
+.profile .info img{
+    background-color: #613A3D;
+  }
+  
+  
+  .image-container {
+    margin-left: 102px;
+    margin-top: 50px;
+    width: 359px; /* Ширина контейнера */
+    height: 324px; /* Высота контейнера */
+    background-color: #d39292; /* Цвет фона контейнера */
+    /* Центрируем по вертикали */
+  }
+  
+  .image-container img {
+    max-width: 100%; /* Ограничиваем ширину изображения */
+    max-height: 100%; /* Ограничиваем высоту изображения */
+    display: block; /* Убираем пробелы под изображением */
+  }
+  
+  .profile{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+    /* justify-content:space-around; */
+   
+    
+  }
+  
+  .profile .info{
+    margin-left: 64px;
+    margin-top: 67px;
+  }
+  
+  .profile .info p{
+    margin-bottom: 37px;
+    background-color: #F2F2F2;
+    width: 547px;
+  
+  }
+  
+  
+  .profile .user-info strong{
+    color: #5F5F5F;
+    font-size: 18px;
+    background-color: #fff;
+    padding-right: 10px;
+   
+  }
+  
+  .profile a{
+    margin-top: 37px;
+    color: #613A3D;
+  }
+  
+  .profile .fun{
+    margin-left: 138px;
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    
+  }

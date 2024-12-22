@@ -18,12 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = $_POST['message'] ?? '';
     $csrf_token = $_POST['csrf_token'] ?? '';
 
-    // Проверка на пустые поля
-    if (empty($surname) || empty($name) || empty($patronymic) || empty($email) || empty($message)) {
-        echo "Пожалуйста, заполните все поля.";
-        exit;
-    }
-
+    
     // Валидация email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Некорректный адрес электронной почты.";
@@ -31,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Проверка токена CSRF
-    if (!hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-        echo "Неверный токен CSRF.";
-        exit;
-    }
+    // if (!hash_equals($_SESSION['csrf_token'], $csrf_token)) {
+    //     echo "Неверный токен CSRF.";
+    //     exit;
+    // }
 
     // Подготовка SQL-запроса для вставки данных
     $sql = "INSERT INTO feedback (surname, name, patronymic, email, message) VALUES (:surname, :name, :patronymic, :email, :message)";

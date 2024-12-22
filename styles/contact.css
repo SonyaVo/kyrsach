@@ -1,0 +1,62 @@
+
+/* контакты */
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  
+  
+  }
+  
+  .contact a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .contact a:hover {
+    color: #613A3D;
+    /*rgb(74, 8, 23)она при наведении */
+    transform: scale(1.05);
+    /* Увеличение кнопки при наведении */
+  }
+  
+  .contact h2,
+  h3 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  
+  
+  
+  .contact h5 {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0px;
+    margin-bottom: 0;
+  }
+  
+  
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  
+  

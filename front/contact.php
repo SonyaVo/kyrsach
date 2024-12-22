@@ -11,6 +11,7 @@ session_start(); // Начало сессии
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Утраченные храмы</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
