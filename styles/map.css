@@ -24,13 +24,20 @@
   left: 0;
 }
 
-.map img {
+.map {
   width: 100%;
   /* Занимает всю ширину контейнера */
   height: 100%;
   /* Занимает всю высоту контейнера */
   object-fit: cover;
   /* Сохраняет пропорции изображения */
+}
+
+.cont-btn{
+  width: 100%;
+  /* Занимает всю ширину контейнера */
+  height: 100%;
+  /* Занимает всю высоту контейнера */
 }
 
 .map-button {
@@ -101,3 +108,24 @@
 
 
 
+.map-rectangle {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.5); /* Полупрозрачный красный цвет */
+  border: 1px solid red; /* Красная рамка */
+  cursor: pointer; /* Курсор при наведении */
+}
+
+
+.mapp {
+	width: 500px;
+	height: 500px;
+	background-color: #333;
+}
+
+[class*="copyrights-pane"] {
+	display: none !important;
+}
+
+[class*="ground-pane"] {
+	filter: grayscale(1);
+}

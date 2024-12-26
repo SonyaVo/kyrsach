@@ -1,5 +1,5 @@
 let ssId = 0;
-const buttons = document.querySelectorAll('.map-button');
+const buttons = document.querySelectorAll('.map-rectangle');
 const modal = document.getElementById('infoModal');
 const overlay = document.getElementById('modalOverlay');
 const modalContent = document.getElementById('modalContent');
