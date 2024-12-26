@@ -6,7 +6,7 @@ require 'db.php'; // Убедитесь, что путь к файлу прав�
 
 
 // Запрос к базе данных
-$sql = "SELECT * FROM lost_tempels"; // Замените на имя вашей таблицы
+$sql = "SELECT * FROM lost_tempels join images Using(id)"; // Замените на имя вашей таблицы
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 

@@ -35,47 +35,15 @@
         </div>
 
 
-        <?php
-        // Подключение к базе данных с использованием переменных окружения
-        $host = getenv('DB_HOST') ?: 'localhost';
-        $db_name = getenv('DB_NAME') ?: 'lost_temple';
-        $db_user = getenv('DB_USER') ?: 'lost_temple';
-        $db_password = getenv('DB_PASSWORD') ?: 'Stud249013!';
-
-        try {
-            $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $db_user, $db_password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            // Логирование ошибки вместо вывода на экран
-            error_log("Ошибка подключения к базе данных: " . $e->getMessage());
-            die("Ошибка подключения к базе данных.");
-        }
-
-        // Получение данных из таблицы map
-        $sql = "SELECT id, x, y, w, h FROM map";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $rectangles = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        ?>
-        <div class="map-container">
-            <div class="map" id="map">
-                <img src="../styles/images/Карта храмов Москвы.png" alt="Карта" id="mapImage">
-                <div class="cont-btn">
-                    <?php foreach ($rectangles as $rect): ?>
-                        <div class="map-rectangle" data-id="<?= htmlspecialchars($rect['id']) ?>"
-                            style="position: absolute; top: <?= htmlspecialchars($rect['y']) ?>px; left: <?= htmlspecialchars($rect['x']) ?>px; width: <?= htmlspecialchars($rect['w']) ?>px; height: <?= htmlspecialchars($rect['h']) ?>px;">
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
 
 
-        <div id="map-test" class="mapp"></div>
-        
+        <div id="map-test" class="map"></div>
+
         <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU">
         </script>
-        <script src="../js/script.js"></script>
+        
+
+
 
         <!-- Модальное окно -->
         <div class="modalOverlay" id="modalOverlay"></div>
@@ -138,11 +106,12 @@
     </footer>
 
 
-    <script src="../js/search.js" defer></script>
-    <script src="../js/modalInfo.js" defer></script>
-    <script src="../js/voting.js" defer></script>
+    <!-- <script src="../js/search.js" defer></script> -->
     <script src="../js/map.js" defer></script>
+    <script src="../js/voting.js" defer></script>
+    <!-- <script src="../js/script.js"></script> -->
     <script src="../js/feedback.js" defer></script>
+    <script src="../js/d.js" defer></script>
 </body>
 
 </html>

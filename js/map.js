@@ -1,44 +1,188 @@
-const mapContainer = document.querySelector('.map-container');
-const map = document.querySelector('.map');
-let isDragging = false;
-let startX, startY, mapX = 0, mapY = 0;
-let scale = 1;
+let center = [55.7558, 37.6173]; // Центр карты (Москва)
+let map;
+let ssId = 0;
+let isAuthenticated = false; // Переменная для хранения статуса авторизации
+let placemarks = []; // Инициализация массива меток
 
-// Отключаем контекстное меню
-mapContainer.addEventListener('contextmenu', (e) => e.preventDefault());
+const modal = document.getElementById('infoModal');
+const overlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+const vote = document.getElementById('vote');
 
-// Обработка начала перетаскивания правой кнопкой мыши
-mapContainer.addEventListener('mousedown', (e) => {
-    if (e.button === 2) { // Проверяем, что нажата правая кнопка
-        isDragging = true;
-        startX = e.clientX - mapX;
-        startY = e.clientY - mapY;
-        map.style.cursor = 'grabbing'; // Изменяем курсор при перетаскивании
+// Функция для проверки авторизации
+function checkAuthentication() {
+    return fetch('../bek/isAut.php')
+        .then(response => response.json())
+        .then(data => {
+            isAuthenticated = data.isAuthenticated; // Сохраняем статус авторизации
+        })
+        .catch(err => {
+            console.error('Ошибка при проверке авторизации:', err);
+        });
+}
+
+function init() {
+    map = new ymaps.Map('map-test', {
+        center: center,
+        zoom: 13
+    });
+
+    // Удаляем ненужные элементы управления
+    map.controls.remove('geolocationControl');
+    map.controls.remove('searchControl');
+    map.controls.remove('trafficControl');
+    map.controls.remove('typeSelector');
+    map.controls.remove('fullscreenControl');
+    map.controls.remove('zoomControl');
+    map.controls.remove('rulerControl');
+
+    // Получаем данные из базы данных
+    fetch('../bek/getInfoToPlacemark.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Выводим данные в консоль для проверки
+            data.forEach(item => {
+                if (item['координаты']) {
+                    let coordinates = item['координаты'].trim().split(',').map(Number);
+                    let placemark = new ymaps.Placemark(coordinates, {
+                        balloonContent: `
+                            <strong>${item['название']}</strong><br>${item['краткое_описание']}`
+                    }, {
+                        iconLayout: 'default#image',
+                        iconImageHref: '../styles/images/купол4.png',
+                        iconImageSize: [27, 40],
+                        iconImageOffset: [-19, -44],
+                        className: 'placemark',
+                        id: item['id']
+
+                    });
+                    console.log([item['название']]);
+                    console.log([item['id']]);
+                    map.geoObjects.add(placemark);
+
+                    placemarks.push(placemark);
+                    // Добавляем обработчик клика на метку
+                    placemark.events.add('click', () => {
+                        ssId = item['id']; // Сохраняем ID храма
+                        openModal(placemark.options.get('id')); // Открываем модальное окно
+                    });
+
+
+
+                }
+                else {
+                    console.warn('Координаты отсутствуют для элемента:', item);
+                }
+
+            });
+
+        })
+        .catch(error => console.error('Ошибка:', error));
+}
+
+// Функция для открытия модального окна
+function openModal(id) {
+    fetch(`../bek/getInfoTemple.php?id=${id}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Если данные успешно получены, отображаем их в модальном окне
+                modalContent.innerHTML = `
+                    <header>
+                        <h1>${data.data.название || 'Название не указано'}</h1>
+                    </header>
+                    <div class="body">
+                        <div class="verx">
+                            <img src='../styles/images/храмы/${data.data.Картинка}.jpg' alt='Image' width='300'>
+                            <div class="info">
+                                <p>Престолы: ${data.data.престол || 'Не указано'}</p>
+                                <p>Архитектурные стили: ${data.data.архитектурный_стиль || 'Не указано'}</p>
+                                <p>Год постройки: ${data.data.год_постройки || 'Не указано'}</p>
+                                <p>Год утраты: ${data.data.год_утраты || 'Не указано'}</p>
+                                <p>Архитектор: ${data.data.архитектор || 'Не указано'}</p>
+                                <p>Адрес: ${data.data.адрес || 'Не указано'}</p>
+                                <p>Координаты: ${data.data.координаты || 'Не указано'}</p>
+                                <p>Проезд: ${data.data.проезд || 'Не указано'}</p>
+                            </div>
+                        </div>
+                        <div class="nis">
+                                                        <h2>Краткое описание</h2>
+                            <p class="opisanie">Краткое описание: ${data.data.краткое_описание || 'Не указано'}</p>
+                        </div>
+                    </div>
+                `;
+
+                // Добавляем кнопку, если пользователь авторизован
+                if (isAuthenticated) {
+                    vote.innerHTML = `
+                        <p>Проголосуйте за восстановление храма! Ваш голос очень важен для нас!</p>
+                        <button class="btn" id="voteButton">ГОЛОСОВАТЬ</button>`;
+                } else {
+                    vote.innerHTML = `<p class="notAut">Авторизуйтесь или зарегистрируйтесь, чтобы иметь возможность проголосовать за восстановление храма!</p>`;
+                }
+
+                modal.style.display = 'block'; // Показываем модальное окно
+                overlay.style.display = 'block'; // Показываем оверлей
+
+                // Обработчик клика на кнопку голосования
+                const voteButton = document.getElementById('voteButton');
+                if (voteButton) {
+                    voteButton.addEventListener('click', () => {
+                        console.log('Голосование начато для ID храма:', ssId);
+                        fetch('../bek/voting.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                            },
+                            body: `id_temple=${encodeURIComponent(ssId)}`
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error('Сеть ответила с ошибкой: ' + response.status);
+                                }
+                                return response.json(); // Парсим ответ как JSON
+                            })
+                            .then(data => {
+                                console.log('Ответ от сервера:', data); // Логируем ответ от сервера
+                                if (data.success) {
+                                    alert(data.message); // Показываем сообщение об успешном голосовании
+                                    const successMessage = document.createElement('p');
+                                    successMessage.textContent = 'Ваш голос успешно учтен!';
+                                    modalContent.appendChild(successMessage); // Добавляем сообщение в модальное окно
+                                    voteButton.remove(); // Удаляем кнопку голосования
+                                } else {
+                                    alert(data.message); // Показываем сообщение об ошибке
+                                }
+                            })
+                            .catch(err => {
+                                console.error('Ошибка при голосовании:', err);
+                                alert('Произошла ошибка при голосовании. Пожалуйста, попробуйте еще раз.');
+                            });
+                    });
+                }
+            } else {
+                modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';
+                modal.style.display = 'block'; // Показываем модальное окно с ошибкой
+                overlay.style.display = 'block'; // Показываем оверлей
+            }
+        })
+        .catch(err => {
+            modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';
+            modal.style.display = 'block'; // Показываем модальное окно с ошибкой
+            overlay.style.display = 'block'; // Показываем оверлей
+        });
+}
+
+// Проверяем авторизацию при загрузке страницы
+checkAuthentication().then(() => {
+    ymaps.ready(init);
+});
+
+// Закрываем модальное окно при нажатии вне его
+window.onclick = function (event) {
+    if (event.target == overlay) {
+        modal.style.display = 'none';
+        overlay.style.display = 'none'; // Скрываем оверлей
     }
-});
+}
 
-// Обработка движения мыши
-document.addEventListener('mousemove', (e) => {
-    if (isDragging) {
-        mapX = e.clientX - startX;
-        mapY = e.clientY - startY;
-        map.style.transform = `translate(${mapX}px, ${mapY}px) scale(${scale})`;
-    }
-});
-
-// Завершение перетаскивания
-document.addEventListener('mouseup', () => {
-    isDragging = false;
-    map.style.cursor = 'grab'; // Возвращаем курсор
-});
-
-// Масштабирование карты
-mapContainer.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const zoomSpeed = 0.1;
-    const delta = e.deltaY > 0 ? -zoomSpeed : zoomSpeed;
-
-    scale = Math.min(Math.max(scale + delta, 0.05), 10); // Ограничение масштаба (от 0.05 до 10)
-    map.style.transform = `translate(${mapX}px, ${mapY}px) scale(${scale})`;
-    console.log(scale); // Для отладки
-});

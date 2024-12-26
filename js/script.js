@@ -3,7 +3,7 @@ let center = [55.7558, 37.6173]; // Центр карты (Москва)
 function init() {
     let map = new ymaps.Map('map-test', {
         center: center,
-        zoom: 12
+        zoom: 13
     });
 
     map.controls.remove('geolocationControl'); // удаляем геолокацию
@@ -23,12 +23,38 @@ function init() {
                 if (item['координаты']) {
                     let coordinates = item['координаты'].trim().split(',').map(Number);
                     let placemark = new ymaps.Placemark(coordinates, {
-                        balloonContent: `<strong>${item['название']}</strong><br>${item['краткое_описание']}`
+                        balloonContent: `
+        <header>
+            <h1>${item['название'] || 'Название не указано'}</h1>
+        </header>
+        <div class="body">
+            <div class="verx">
+                <img src='../styles/images/храмы/${item['Картинка']}.jpg' alt='Image' width='300'>
+                <div class="info">
+                    <p>Престолы: ${item['престол'] || 'Не указано'}</p>
+                    <p>Архитектурные стили: ${item['архитектурный_стиль'] || 'Не указано'}</p>
+                    <p>Год постройки: ${item['год_постройки'] || 'Не указано'}</p>
+                    <p>Год утраты: ${item['год_утраты ']|| 'Не указано'}</p>
+                    <p>Архитектор: ${item['архитектор'] || 'Не указано'}</p>
+                    <p>Адрес: ${item['адрес'] || 'Не указано'}</p>
+                    <p>Координаты: ${item['.координаты ']|| 'Не указано'}</p>
+                    <p>Проезд: ${item['проезд'] || 'Не указано'}</p>
+                </div>
+            </div>
+            <div class="nis">
+                <h2>Краткое описание</h2>
+                <p class="opisanie">Краткое описание: ${data.краткое_описание || 'Не указано'}</p>
+            </div>
+        </div>
+    `
+						// `<strong>${item['название']}</strong><br>${item['краткое_описание']}`
                     }, {
                         iconLayout: 'default#image',
                         iconImageHref: '../styles/images/купол4.png',
                         iconImageSize: [27, 40],
-                        iconImageOffset: [-19, -44]
+                        iconImageOffset: [-19, -44],
+						className: 'placemark', // Ваш пользовательский класс
+						id: item['id'] // Предполагается, что у вас есть поле 'id' в данных
                     });
 
                     map.geoObjects.add(placemark);
