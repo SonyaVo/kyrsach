@@ -15,7 +15,7 @@
   .feedback h2 {
     margin: 0;
     font-size: 27px;
-  
+  text-align: center;
   
   
   }
@@ -33,7 +33,7 @@
   
   .feedback .header hr {
   
-    width: 592px;
+    width: 540px;
     border: none;
     /* Убираем границу */
     background-color: #613A3D;
