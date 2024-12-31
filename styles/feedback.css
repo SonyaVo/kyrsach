@@ -1,117 +1,158 @@
-
-
-/* обратная связь */
+/* Обратная связь */
 .feedback {
-    padding-top: 54px;
-    padding-bottom: 60px;
-  
-    background-color: #D9D9D9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  
-  .feedback h2 {
-    margin: 0;
-    font-size: 27px;
+  padding-top: 54px;
+  padding-bottom: 60px;
+  background-color: #D9D9D9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback h2 {
+  width: 100%;
+  margin: 0;
+  font-size: 27px;
   text-align: center;
-  
-  
-  }
-  
-  
-  .feedback .header {
-    margin: 0;
-    height: 40px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center
-  }
-  
-  .feedback .header hr {
-  
-    width: 540px;
-    border: none;
-    /* Убираем границу */
-    background-color: #613A3D;
-    /* Цвет линии */
-    color: #613A3D;
-    /* Цвет линии для IE6-7 */
-    height: 2px;
-  }
-  
+}
+
+.feedback .header {
+  margin: 0;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedback .header hr {
+  width: 100%;
+  border: none;
+  background-color: #613A3D;
+  color: #613A3D;
+  height: 2px;
+}
+
+.feedback .fid_cont {
+  width: 95%;
+  height: 695px;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+.feedback p {
+  margin: 0;
+  font-size: 27px;
+  padding-top: 72px;
+  padding-right: 130px;
+}
+
+.feedback label {
+  font-size: 20px;
+  text-align: left;
+  stroke: #000;
+  stroke-width: 2px;
+  margin-bottom: 8px;
+}
+
+.feedback input,
+.feedback textarea {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 15px;
+  border: 2px solid #613A3D;
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.55%;
+  margin-bottom: 20px;
+}
+
+.feedback form {
+  width: 30%;
+  padding-top: 24px;
+}
+
+form,
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback input {
+  width: 100%;
+  height: 30px;
+}
+
+.feedback textarea {
+  width: 100%;
+  height: 170px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  font-size: 15px;
+  padding-top: 5px;
+}
+
+.feedback .btn {
+  width: 276px;
+  height: 60px;
+  margin: auto;
+  color: #ffffff;
+  background-color: #613A3D;
+  font-size: 27px;
+}
+
+.feedback .responseMessage {
+  margin-top: 20px;
+  color: #613A3D;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
   .feedback .fid_cont {
-    width: 1136px;
-    height: 695px;
-  
-    display: flex;
-    flex-direction: row;
-  
-  
-  
+      flex-direction: column; /* Изменяем направление на колонку для мобильных устройств */
+      width: 90%; /* Уменьшаем ширину контейнера */
+      height: auto; /* Автоматическая высота для контейнера */
   }
-  
+
   .feedback p {
-    margin: 0;
-    font-size: 27px;
-    padding-top: 72px;
-    padding-right: 130px;
+      padding-right: 0; /* Убираем правый отступ */
+      padding-top: 20px; /* Уменьшаем верхний отступ */
+      font-size: 22px; /* Уменьшаем размер шрифта */
   }
-  
-  .feedback label {
-    font-size: 20px;
-    text-align: left;
-    stroke: #000;
-    stroke-width: 2px;
-    margin-bottom: 8px;
-  }
-  
+
   .feedback input,
-  textarea {
-    margin: 0;
-    padding-left: 10px;
-    font-size: 15px;
-    border: 2px solid #613A3D;
-  
-    font-family: "Oranienbaum", serif;
-    letter-spacing: 1.55%;
-    margin-bottom: 20px;
-  
+  .feedback textarea {
+      width: 100%; /* Полная ширина на мобильных устройствах */
+      max-width: 100%; /* Максимальная ширина 100% */
   }
-  
+
+  .feedback .btn {
+      width: 100%; /* Полная ширина кнопки на мобильных устройствах */
+      font-size: 24px; /* Уменьшаем размер шрифта кнопки */
+  }
   .feedback form {
+    width: 100%;
     padding-top: 24px;
   }
   
-  form,
-  .form-group {
-    display: flex;
-    flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .feedback h2 {
+      font-size: 24px; /* Уменьшаем размер заголовка для маленьких экранов */
   }
-  
-  .feedback input {
-    width: 538px;
-    height: 30px;
+
+  .feedback p {
+      font-size: 20px; /* Уменьшаем размер текста для маленьких экранов */
   }
-  
-  .feedback textarea {
-    width: 538px;
-    height: 170px;
-    margin-bottom: 20px;
-  }
-  
+
   .feedback .btn {
-    width: 276px;
-    height: 60px;
-    margin: auto;
-    color: #ffffff;
-    background-color: #613A3D;
-    font-size: 27px;
+      height: 50px; /* Уменьшаем высоту кнопки для маленьких экранов */
   }
-  
-  
-  
-  
+  .feedback form {
+    width: 100%;
+    padding-top: 24px;
+  }
+}

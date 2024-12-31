@@ -19,11 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $csrf_token = $_POST['csrf_token'] ?? '';
 
     
-    // Валидация email
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Некорректный адрес электронной почты.";
-        exit;
-    }
+    // // Валидация email
+    // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //     echo "Некорректный адрес электронной почты.";
+    //     exit;
+    // }
 
     // Проверка токена CSRF
     // if (!hash_equals($_SESSION['csrf_token'], $csrf_token)) {
@@ -61,13 +61,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!-- HTML-форма -->
-<form method="POST" action="">
-    <input type="text" name="surname" placeholder="Фамилия" required>
-    <input type="text" name="name" placeholder="Имя" required>
-    <input type="text" name="patronymic" placeholder="Отчество" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Сообщение" required></textarea>
-    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
-    <button type="submit">Отправить</button>
-</form>

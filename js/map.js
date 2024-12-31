@@ -28,10 +28,10 @@ function init() {
     });
 
     // Удаляем ненужные элементы управления
-     map.controls.remove('geolocationControl');
-     map.controls.remove('searchControl');
-     map.controls.remove('trafficControl');
-     map.controls.remove('typeSelector');
+    map.controls.remove('geolocationControl');
+    map.controls.remove('searchControl');
+    map.controls.remove('trafficControl');
+    map.controls.remove('typeSelector');
     // map.controls.remove('fullscreenControl');
     // map.controls.remove('zoomControl');
     // map.controls.remove('rulerControl');
@@ -57,16 +57,16 @@ function init() {
                         id: item['id']
 
                     });
-                    console.log([item['название']]);
-                    console.log([item['id']]);
+                    // console.log([item['название']]);
+                    // console.log([item['id']]);
                     map.geoObjects.add(placemark);
 
                     placemarks.push([item['id'], placemark]);
                     // Добавляем обработчик клика на метку
                     placemark.events.add('click', () => {
 
-                        
-                        console.log([item['id']]);
+
+                        // console.log([item['id']]);
                         ssId = item['id']; // Сохраняем ID храма
                         console.log(ssId);
                         openModal(placemark.options.get('id')); // Открываем модальное окно
@@ -86,6 +86,8 @@ function init() {
 }
 
 // Функция для открытия модального окна
+// ... (previous code remains unchanged)
+
 function openModal(id) {
     fetch(`../bek/getInfoTemple.php?id=${id}`)
         .then(response => response.json())
@@ -111,60 +113,68 @@ function openModal(id) {
                             </div>
                         </div>
                         <div class="nis">
-                                                        <h2>Краткое описание</h2>
+                            <h2>Краткое описание</h2>
                             <p class="opisanie">Краткое описание: ${data.data.краткое_описание || 'Не указано'}</p>
                         </div>
                     </div>
                 `;
 
-                // Добавляем кнопку, если пользователь авторизован
-                if (isAuthenticated) {
-                    vote.innerHTML = `
-                        <p>Проголосуйте за восстановление храма! Ваш голос очень важен для нас!</p>
-                        <button class="btn" id="voteButton">ГОЛОСОВАТЬ</button>`;
-                } else {
-                    vote.innerHTML = `<p class="notAut">Авторизуйтесь или зарегистрируйтесь, чтобы иметь возможность проголосовать за восстановление храма!</p>`;
-                }
+                // Проверяем, проголосовал ли пользователь
+                checkUserVote(id).then(hasVoted => {
+                    if (hasVoted) {
+                        vote.innerHTML = `<p>Вы уже проголосовали за восстановление этого храма!</p>`;
+                    } else {
+                        // Добавляем кнопку, если пользователь авторизован
+                        if (isAuthenticated) {
+                            vote.innerHTML = `
+                                <p>Проголосуйте за восстановление храма! Ваш голос очень важен для нас!</p>
+                                <button class="btn" id="voteButton">ГОЛОСОВАТЬ</button>`;
+                        } else {
+                            vote.innerHTML = `<p class="notAut">Авторизуйтесь или зарегистрируйтесь, чтобы иметь возможность проголосовать за восстановление храма!</p>`;
+                        }
+                    }
 
-                modal.style.display = 'block'; // Показываем модальное окно
-                overlay.style.display = 'block'; // Показываем оверлей
+                    modal.style.display = 'block'; // Показываем модальное окно
+                    overlay.style.display = 'block'; // Показываем оверлей
 
-                // Обработчик клика на кнопку голосования
-                const voteButton = document.getElementById('voteButton');
-                if (voteButton) {
-                    voteButton.addEventListener('click', () => {
-                        console.log('Голосование начато для ID храма:', ssId);
-                        fetch('../bek/voting.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                            },
-                            body: `id_temple=${encodeURIComponent(ssId)}`
-                        })
-                            .then(response => {
-                                if (!response.ok) {
-                                    throw new Error('Сеть ответила с ошибкой: ' + response.status);
-                                }
-                                return response.json(); // Парсим ответ как JSON
+                    // Обработчик клика на кнопку голосования
+                    const voteButton = document.getElementById('voteButton');
+                    if (voteButton) {
+                        voteButton.addEventListener('click', () => {
+                            console.log('Голосование начато для ID храма:', ssId);
+                            fetch('../bek/voting.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/x-www-form-urlencoded',
+                                },
+                                body: `id_temple=${encodeURIComponent(ssId)}`
                             })
-                            .then(data => {
-                                console.log('Ответ от сервера:', data); // Логируем ответ от сервера
-                                if (data.success) {
-                                    alert(data.message); // Показываем сообщение об успешном голосовании
-                                    const successMessage = document.createElement('p');
-                                    successMessage.textContent = 'Ваш голос успешно учтен!';
-                                    modalContent.appendChild(successMessage); // Добавляем сообщение в модальное окно
-                                    voteButton.remove(); // Удаляем кнопку голосования
-                                } else {
-                                    alert(data.message); // Показываем сообщение об ошибке
-                                }
-                            })
-                            .catch(err => {
-                                console.error('Ошибка при голосовании:', err);
-                                alert('Произошла ошибка при голосовании. Пожалуйста, попробуйте еще раз.');
-                            });
-                    });
-                }
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Сеть ответила с ошибкой: ' + response.status);
+                                    }
+                                    return response.json(); // Парсим ответ как JSON
+                                })
+                                .then(data => {
+                                    console.log('Ответ от сервера:', data); // Логируем ответ от сервера
+                                    if (data.success) {
+                                        //alert(data.message); // Показываем сообщение об успешном голосовании
+                                        const successMessage = document.createElement('p');
+                                        vote.innerHTML = `Ваш голос успешно учтен!`;
+                                        modalContent.appendChild(successMessage); // Добавляем сообщение в модальное окно
+                                        voteButton.remove(); // Удаляем кнопку голосования
+                                    } else {
+                                        alert(data.message); // Показываем сообщение об ошибке
+                                    }
+
+                                })
+                                .catch(err => {
+                                    console.error('Ошибка при голосовании:', err);
+                                    alert('Произошла ошибка при голосовании. Пожалуйста, попробуйте еще раз.');
+                                });
+                        });
+                    }
+                });
             } else {
                 modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';
                 modal.style.display = 'block'; // Показываем модальное окно с ошибкой
@@ -176,6 +186,29 @@ function openModal(id) {
             modal.style.display = 'block'; // Показываем модальное окно с ошибкой
             overlay.style.display = 'block'; // Показываем оверлей
         });
+}
+
+// Функция для проверки, проголосовал ли пользователь
+async function checkUserVote(templeId) {
+    try {
+        const response = await fetch(`../bek/voteInfo.php?id=${templeId}`);
+        if (!response.ok) {
+            throw new Error('Сеть ответила с ошибкой: ' + response.status);
+        }
+
+        const data = await response.json();
+
+        // Проверяем, есть ли информация о голосовании
+        if (data.success) {
+            // Предполагаем, что в data.data[0] есть поле user_voted
+            return data.data[0].user_voted > 0; // Возвращаем true, если пользователь уже голосовал
+        } else {
+            return false; // Если нет данных, возвращаем false
+        }
+    } catch (error) {
+        console.error('Ошибка при получении данных о голосовании:', error);
+        return false; // В случае ошибки возвращаем false
+    }
 }
 
 // Проверяем авторизацию при загрузке страницы

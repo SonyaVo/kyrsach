@@ -11,8 +11,8 @@ function searchBtnHandler(event) {
     if (query.length === 0) {
         downloadData(0);  // Загружаем данные для всех кнопок при пустом запросе
     } else {
-        console.log("чч");
-        console.log(selectedId);
+        // console.log("чч");
+        // console.log(selectedId);
         downloadData(selectedId);  // Загружаем данные с выбранным ID
     }
 }
@@ -34,8 +34,8 @@ function downloadData(id) {
         });
 
         // Показываем только кнопку с выбранным ID
-        console.log("ввв");
-        console.log(id);
+        // console.log("ввв");
+        // console.log(id);
         
         // Находим выбранную метку по ID
         const selectedPlacemark = placemarks.find(placemark => placemark[0] === id);

@@ -5,8 +5,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
     <title>Утраченные храмы</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/search.css">
     <link rel="stylesheet" href="../styles/map.css">
@@ -48,8 +53,6 @@
         <!-- Модальное окно -->
         <div class="modalOverlay" id="modalOverlay"></div>
         <div class="infoModal" id="infoModal">
-            <!-- <span class="close">&times;</span> -->
-            <!-- <h3>Информация о храме</h3> -->
             <div class="modalContent" id="modalContent">Загрузка данных...</div>
             <div class="vote" id="vote"></div>
         </div>
@@ -66,7 +69,7 @@
                     <p>Не работает голосование?<br>
                         Есть идеи или предложения?<br>
                         Оставляйте контакты и мы обязательно с<br>Вами свяжемся!</p>
-                    <div id="responseMessage" style="display:none;"></div>
+                    <div class="responseMessage" id="responseMessage" style="display:none;"></div>
                 </div>
 
                 <form id="feedbackForm" action="../bek/feedback.php" method="POST" enctype="multipart/form-data">
@@ -102,7 +105,7 @@
     </main>
 
     <footer>
-        <!-- Здесь можно добавить содержимое футера -->
+       Данные взяты с:<a href="https://sobory.ru/"> Собор.ру</a>
     </footer>
 
 
@@ -116,20 +119,3 @@
 
 </html>
 
-<!-- <header>
-
-        <!-- <nav>
-            <ul>
-                <li><a href="index.php">Главная</a></li>
-                <li><a href="catalog.php">Магазин</a></li>
-            </ul>
-        </nav> 
-        <div class="auth">
-            <a href="log_in.php">Войти</a> | <a href="sign_in.php">Регистрация</a>
-        </div>
-
-        <h1>XXXXXX</h1>
-    </header> -->
-
-
-<!-- <style>

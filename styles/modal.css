@@ -87,11 +87,12 @@
   .infoModal .vote {
   
     
-    font-size: 16px;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
   }
   
   .infoModal .vote button {
@@ -121,6 +122,7 @@
   
   .infoModal .vote .notAut{
     margin-bottom: 30px;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -11,7 +11,7 @@ $id = intval($_GET['id']); // Приводим к целому числу
 
 try {
     // Подготовка SQL-запроса для поиска по ID
-    $stmt = $pdo->prepare("SELECT * FROM lost_tempels join images Using(id) WHERE id = :id");
+    $stmt = $pdo->prepare("SELECT * FROM lost_tempels JOIN images USING(id) WHERE id = :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 
@@ -29,3 +29,4 @@ try {
     error_log($e->getMessage());
     echo json_encode(['success' => false, 'message' => 'Произошла ошибка при выполнении запроса.']);
 }
+?>

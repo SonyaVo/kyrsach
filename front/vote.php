@@ -31,7 +31,7 @@ session_start(); // Начало сессии
     </main>
     <footer>
     </footer>
-    <script src="../js/js.js" defer></script>
+    <script src="../js/list_vote.js" defer></script>
 
 </body>
 

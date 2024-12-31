@@ -1,22 +1,46 @@
-
-
-
-
-
-
 .map {
-	width: 1000px;
-	height: 1000px;
-	background-color: #333;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+    width: 70%;
+    height: 1000px;
+    background-color: #333;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
+/* Скрыть элементы с классом copyrights-pane */
 [class*="copyrights-pane"] {
-	display: none !important;
+    display: none !important;
 }
 
+/* Применить фильтр к элементам с классом ground-pane */
 [class*="ground-pane"] {
-	filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+    .map {
+        width: 90%; /* Увеличиваем ширину на меньших экранах */
+        height: 800px; /* Уменьшаем высоту для меньших экранов */
+    }
+}
+
+@media (max-width: 992px) {
+    .map {
+        width: 95%; /* Увеличиваем ширину на еще меньших экранах */
+        height: 600px; /* Уменьшаем высоту для еще меньших экранов */
+    }
+}
+
+@media (max-width: 768px) {
+    .map {
+        width: 100%; /* Полная ширина на мобильных устройствах */
+        height: 400px; /* Уменьшаем высоту для мобильных устройств */
+    }
+}
+
+@media (max-width: 576px) {
+    .map {
+        height: 300px; /* Еще меньше высота для очень маленьких экранов */
+    }
 }

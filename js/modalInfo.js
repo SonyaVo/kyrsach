@@ -1,4 +1,3 @@
-
 let ssId = 0;
 const modal = document.getElementById('infoModal');
 const overlay = document.getElementById('modalOverlay');
@@ -46,34 +45,30 @@ function createModalContent(data) {
     `;
 }
 
-// Проверяем авторизацию при загрузке страницы
 checkAuthentication().then(() => {
     const buttons = document.querySelectorAll('.placemark');
     buttons.forEach(button => {
         button.addEventListener('click', async () => {
             const id = button.getAttribute('data-id');
-            ssId = id
+            ssId = id;
             try {
                 const response = await fetch(`../bek/getInfoTemple.php?id=${id}`);
                 const data = await response.json();
                 if (data.success) {
                     modalContent.innerHTML = createModalContent(data.data);
 
-                    // Добавляем кнопку, если пользователь авторизован
-                    if (isAuthenticated) {
+                    // Проверяем, проголосовал ли пользователь
+                    const userVoted = data.data.user_voted > 0; // Измените на правильный путь к данным
+
+                    if (userVoted) {
+                        vote.innerHTML = `<p>Вы уже проголосовали.</p>`;
+                    } else if (isAuthenticated) {
                         vote.innerHTML = `
                         <p>Проголосуйте за восстановление храма! Ваш голос очень важен для нас!</p>
                         <button class="btn" id="voteButton">ГОЛОСОВАТЬ</button>`;
-                    } else {
-                        vote.innerHTML = `<p class="notAut">Авторизуйтесь или зарегистрируйтесь, чтобы иметь возможность проголосовать за восстановление храма!</p>`;
-                    }
-
-                    modal.style.display = 'block'; // Показываем модальное окно
-                    overlay.style.display = 'block'; // Показываем оверлей
-
-                    // Обработчик клика на кнопку голосования
-                    const voteButton = document.getElementById('voteButton');
-                    if (voteButton) {
+                        
+                        // Обработчик клика на кнопку голосования
+                        const voteButton = document.getElementById('voteButton');
                         voteButton.addEventListener('click', async () => {
                             console.log('Голосование начато для ID храма:', ssId);
                             try {
@@ -94,9 +89,7 @@ checkAuthentication().then(() => {
 
                                 if (data.success) {
                                     alert(data.message); // Показываем сообщение об успешном голосовании
-                                    const successMessage = document.createElement('p');
-                                    successMessage.textContent = 'Ваш голос успешно учтен!';
-                                    modalContent.appendChild(successMessage); // Добавляем сообщение в модальное окно
+                                    vote.innerHTML = `<p>Ваш голос успешно учтен!</p>`; // Обновляем сообщение
                                     voteButton.remove(); // Удаляем кнопку голосования
                                 } else {
                                     alert(data.message); // Показываем сообщение об ошибке
@@ -106,7 +99,13 @@ checkAuthentication().then(() => {
                                 alert('Произошла ошибка при голосовании. Пожалуйста, попробуйте еще раз.');
                             }
                         });
+                    } else {
+                        vote.innerHTML = `<p class="notAut">Авторизуйтесь или зарегистрируйтесь, чтобы иметь возможность проголосовать за восстановление храма!</p>`;
                     }
+
+                    modal.style.display = 'block'; // Показываем модальное окно
+                    overlay.style.display = 'block'; // Показываем оверлей
+
                 } else {
                     modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';
                     modal.style.display = 'block'; // Показываем модальное окно с ошибкой

@@ -1,6 +1,6 @@
 <header>
     <div class="header">
-        <img src="../styles/images/ЦКИТА4 жел.png" alt="лого" class="logo" width="125px" height="125px">
+        <img src="../styles/images/ЦКИТА4 жел.png" alt="лого" class="logo logo1" width="125px" height="125px">
 
         <div class="names">
             <h3>ЦЕНТР КЛАССИЧЕСКОЙ И ТРАДИЦИОННОЙ АРХИТЕКТУРЫ</h3>
@@ -8,7 +8,7 @@
             <h4>СПЕЦ ПРОЕКТ</h4>
         </div>
 
-        <img src="../styles/images/ЦКИТА4 белый.png" alt="лого" class="logo" sizes="125px 125px ">
+        <img src="../styles/images/ЦКИТА4 жел.png" alt="лого" class="logo logo2" sizes="125px 125px ">
     </div>
     <hr>
 
@@ -19,23 +19,43 @@
             <img src="../styles/images/youtube.svg" alt="youtube" class="youtube" width="29px" height="29px">
             <img src="../styles/images/vk.svg" alt="vk" class="vk" width="29px" height="29px">
         </div>
+        <!-- <nav id="nav" class="">
+            <div class="nav">
+                <a href="main.php">ГЛАВНАЯ</a>
+                <a href="vote.php">ГОЛОСОВАНИЕ</a>
+                
+                <a href="contact.php">КОНТАКТЫ</a>
+            </div>
+
+            <button id="nav-btn" class="nav-btn">
+                <img id="nav-btn-img" src="../styles/images/btn.svg" alt="">
+                <span></span>
+            </button>
+
+        </nav> -->
+
+
         <div class="nav">
             <a href="main.php">ГЛАВНАЯ</a>
             <a href="vote.php">ГОЛОСОВАНИЕ</a>
             <!-- <a href="project.php">О ПРОЕКТЕ</a> -->
-            <a href="about.php">О НАС</a>
+            <!-- <a href="about.php">О НАС</a> -->
             <a href="contact.php">КОНТАКТЫ</a>
         </div>
+
+    
+
 
         <div class="cabinet">
 
             <?php if (isset($_SESSION['user_id'])): ?>
-                <a href="profile.php">Личный кабинет</a>
+                <a href="profile.php">ЛИЧНЫЙ КАБИНЕТ</a>
             <?php else: ?>
-                <a href="log_in.php">Войти/</a>
-                <a href="../front/sign_in.php">Регистрация</a>
+                <a href="log_in.php">ВОЙТИ/</a>
+                <a href="../front/sign_in.php">РЕГИСТРАЦИЯ</a>
             <?php endif; ?>
         </div>
+
     </div>
 
 </header>
