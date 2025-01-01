@@ -29,6 +29,7 @@
     <?php include 'header.php'; ?>
 
     <main>
+        <div class="cont_main">
         <div>
             <!-- для текста перед картой -->
         </div>
@@ -57,6 +58,7 @@
             <div class="vote" id="vote"></div>
         </div>
 
+        </div>
         <div class="feedback">
             <div class="header">
                 <hr>
@@ -72,7 +74,7 @@
                     <div class="responseMessage" id="responseMessage" style="display:none;"></div>
                 </div>
 
-                <form id="feedbackForm" action="../bek/feedback.php" method="POST" enctype="multipart/form-data">
+                <form class="feedbackForm" id="feedbackForm" action="../bek/feedback.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label class="form-label" for="surname">Фамилия</label>
                         <input type="text" name="surname" id="surname" placeholder="Иванов" required>

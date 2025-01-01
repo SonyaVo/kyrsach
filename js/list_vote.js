@@ -31,12 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 data.forEach(temple => {
                     const listItem = document.createElement('li');
+                    const vote_word = padeg(temple.vote_count) ;
+
+                    
                     listItem.innerHTML = `
-                        <span>${temple.название}</span>
-                        <div style='display:inline-block; width:200px; background-color:lightgray;'>
-                            <div style='width:${temple.vote_count * 10}px; background-color:green; height:20px;'></div>
+                        <h2>${temple.название}</h2>
+                        <div class="count">
+                        <div class="box">
+                            <div сlass="in_box" style='width:${temple.vote_count * 5}px; background-color: #613A3D;height: 20px;'></div>
+                            </div>
+                        
+                        <h4> ${vote_word} </h4>
                         </div>
-                        <span> ${temple.vote_count} голосов</span>
+                        
                     `;
 
                     // Добавляем кнопку голосования или сообщение о том, что пользователь уже проголосовал
@@ -101,3 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Проверяем авторизацию и загружаем данные о храмах при загрузке страницы
     checkAuthentication().then(loadTemples);
 });
+
+function padeg(n) {
+    let recordWord;
+    let recordWord2;
+    if (n % 10 === 1 && n % 100 !== 11) {
+        recordWord2 = "голос";
+    } else if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) {
+
+        recordWord2 = "голоса";
+
+    } else {
+
+        recordWord2 = "голосов";
+    }
+    return `${n} ${recordWord2}`;
+}

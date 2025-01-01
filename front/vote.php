@@ -11,6 +11,8 @@ session_start(); // Начало сессии
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Утраченные храмы</title>
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/voting.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,5 +36,6 @@ session_start(); // Начало сессии
     <script src="../js/list_vote.js" defer></script>
 
 </body>
+
 
 </html>

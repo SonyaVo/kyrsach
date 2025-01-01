@@ -1,13 +1,25 @@
 
 /* профиль */
 
+main{
+  margin: 10px 180px;
+  display: flex;
+    flex-direction: column;
+
+}
+.vote{
+  display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
 .profile .info img{
     background-color: #613A3D;
   }
   
   
   .image-container {
-    margin-left: 102px;
+   
     margin-top: 50px;
     width: 359px; /* Ширина контейнера */
     height: 324px; /* Высота контейнера */
@@ -25,7 +37,10 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 100px;
-    /* justify-content:space-around; */
+    max-height:300px ;
+   
+   
+    
    
     
   }
@@ -57,9 +72,41 @@
   }
   
   .profile .fun{
-    margin-left: 138px;
+    margin-left: 50px;
     margin-top: 27px;
     display: flex;
     flex-direction: column;
     
   }
+
+  
+li {
+  width: 100%;
+  margin-top: 20px;
+  font-weight: lighter;
+  list-style-type: none;
+}
+
+
+ul h2 {
+  font-family: "Oranienbaum", serif;
+  letter-spacing: 1.65%;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+ul h4 {
+  width: 80px;
+  margin-left: 20px;
+}
+
+.box {
+  display: inline-block;
+  width: 100%;
+  background-color: rgb(196, 196, 196);
+}
+
+.in_box {
+  background-color: #613A3D;
+  height: 20px;
+}

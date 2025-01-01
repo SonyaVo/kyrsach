@@ -24,14 +24,17 @@
                 <img src="path/to/your/image.jpg" alt="Описание изображения" width="359" height="324">
             </div>
             <!-- <h1>Личный кабинет</h1> -->
-            <div class="info" id="result">Loading...</div>
+            <div class="info" id="result"></div>
+            
             <div class="fun">
-                <a href="../bek/log_out.php">ИЗМЕНИТЬ ДАННЫЕ</a>
+                <!-- <a href="../bek/log_out.php">ИЗМЕНИТЬ ДАННЫЕ</a> -->
                 <a href="../bek/log_out.php" class="logout-link">ВЫЙТИ</a>
             </div>
 
 
         </div>
+        <!-- <div ></div> -->
+        <ul class="vote" id="vote"></ul>
     
     </main>
 
