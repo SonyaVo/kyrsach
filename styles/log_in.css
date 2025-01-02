@@ -1,66 +1,68 @@
-body{
+body {
   margin: 0;
   font-family: "Oranienbaum", serif;
   letter-spacing: 1.55%;
-    background-color: #613A3D;
-    display: flex;
-    justify-content: center; /* Центрирует по горизонтали */
-    align-items: center;
-
-  }
-  
-.cont{
- 
-    background-color: #ffffff;
-    width: 750px;
-    height: 425px;
-    color: #000;
-    display: flex;
-  flex-direction: column;
-  justify-content: center; /* Центрирует по горизонтали */
+  background-color: #613A3D;
+  display: flex;
+  justify-content: center;
   align-items: center;
 
-  }
 
-
-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Центрирует по горизонтали */
-    align-items: center;
-
-  
 }
 
-h1{
-  margin:0px;
+.cont {
+  width: 70vh;
+  background-color: #ffffff;
+
+  height: 425px;
+  color: #000;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+h1 {
+  margin: 0px;
   padding-bottom: 41px;
   text-align: center;
 }
 
-input{
-  width: 311px;
+input {
+  width: 100%;
   height: 30px;
   border: 2px solid #613A3D;
-}
-input{
   margin-bottom: 31px;
 }
 
-label{
+
+label {
   font-size: 17px;
-  font-weight:bolder;
+  font-weight: bolder;
   padding-bottom: 11px;
 }
 
-.form-group{
-  width: 311px;
+.form-group {
+  width: 100%;
   display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.btn{
+.btn {
   font-family: "Oranienbaum", serif;
   letter-spacing: 1.55%;
   font-size: 20px;
@@ -82,22 +84,168 @@ label{
 }
 
 
-/* Добавьте это в ваш файл sign_in.css */
-html, body {
-  height: 100%; /* Устанавливаем высоту на 100% */
-  margin: 0; /* Убираем отступы */
-  display: flex; /* Используем Flexbox для вертикального центрирования */
-  justify-content: center; /* Центрируем по горизонтали */
-  align-items: center; /* Центрируем по вертикали */
- 
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 
-.h{
+.h {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Центрирует по горизонтали */
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 
+
+}
+
+
+
+
+@media (max-width: 1000px) {
+  .cont {
+    width: 50vh;
+
+  }
+}
+
+
+
+@media (max-width: 840px) {
+  .cont {
+    width: 50vh;
+
+  }
+
+
+  h1 {
+
+    font-size: 30px;
+
+  }
+
+  label {
+    font-size: 15px;
+
+
+  }
+
+  input {
+    
+    height: 25px;
+    
+  }
+
+}
+
+@media (max-width: 780px) {
+
+  .cont {
+    width: 50vh;
+    margin: 50px;
+
+  }
+
+
+  h1 {
+
+    font-size: 28px;
+
+  }
+
+  label {
+    font-size: 14px;
+
+
+  }
+
+  input {
+   
+    height: 23px;
+    
+  }
+}
+
+
+@media (max-width: 560px) {
+  .cont {
+    width: 40vh;
+    margin: 50px;
+    height: 325px;
+
+  }
+
+
+  h1 {
+    padding-bottom: 25px;
+    font-size: 26px;
+
+  }
+
+  label {
+    font-size: 12px;
+
+
+  }
+
+  input {
+   
+    height: 20px;
+    
+  }
+
+  input {
+    
+    margin-bottom: 20px;
+  }
+
+
+}
+
+@media (max-width: 440px) {
+  .cont {
+    width: 30vh;
+    margin: 50px;
+    height: 300px;
+
+  }
+
+
+  h1 {
+    padding-bottom: 15px;
+    font-size: 24px;
+
+  }
+
+  label {
+    font-size: 12px;
+
+
+  }
+
+  input {
+   
+    height: 18px;
+    
+  }
+
+  input {
+    
+    margin-bottom: 15px;
+  }
   
+.btn {
+  
+  width: 120px;
+  height: 33px;
+  margin-top: 21px;
+  
+}
+
 }
