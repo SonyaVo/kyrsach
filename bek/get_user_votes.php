@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php'; // Подключение к базе данных
+include 'db.php'; 
 
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['success' => false, 'message' => 'User not logged in.']);
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 try {
-    // Подготовка SQL-запроса
+ 
     $query = "
         SELECT lt.id, lt.название, COUNT(v.id) AS vote_count 
 FROM lost_tempels lt 

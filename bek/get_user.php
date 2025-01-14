@@ -1,32 +1,28 @@
 <?php
-session_start(); // Начало сессии
+session_start(); 
 require 'db.php';
 
-// Устанавливаем заголовки для JSON-ответа
 header('Content-Type: application/json; charset=utf-8');
 
-// Проверяем, авторизован ли пользователь
 if (isset($_SESSION['user_id'])) {
-    $userId = (int)$_SESSION['user_id']; // Приводим к целому числу для безопасности
+    $userId = (int)$_SESSION['user_id'];
 
-    // Выполняем запрос к базе данных
     try {
         $stmt = $pdo->prepare('SELECT id, surname, name, patronymic, email,phone FROM users WHERE id = :id');
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->execute();
 
-        $user = $stmt->fetch(PDO::FETCH_ASSOC); // Получаем данные как ассоциативный массив
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Возвращаем данные пользователя или сообщение об ошибке
         if ($user) {
-            // Убираем чувствительные данные перед отправкой
-            unset($user['password']); // Убедитесь, что вы не отправляете пароль
+
+            unset($user['password']); 
             echo json_encode(['success' => true, 'data' => $user]);
         } else {
             echo json_encode(['success' => false, 'message' => 'User not found']);
         }
     } catch (PDOException $e) {
-        // Логируем ошибку и возвращаем сообщение
+
         error_log("Database error: " . $e->getMessage());
         echo json_encode(['success' => false, 'message' => 'Internal server error']);
     }

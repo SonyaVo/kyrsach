@@ -19,27 +19,12 @@
             <img src="../styles/images/youtube.svg" alt="youtube" class="youtube" width="29px" height="29px">
             <img src="../styles/images/vk.svg" alt="vk" class="vk" width="29px" height="29px">
         </div>
-        <!-- <nav id="nav" class="">
-            <div class="nav">
-                <a href="main.php">ГЛАВНАЯ</a>
-                <a href="vote.php">ГОЛОСОВАНИЕ</a>
-                
-                <a href="contact.php">КОНТАКТЫ</a>
-            </div>
-
-            <button id="nav-btn" class="nav-btn">
-                <img id="nav-btn-img" src="../styles/images/btn.svg" alt="">
-                <span></span>
-            </button>
-
-        </nav> -->
-
+    
 
         <div class="nav">
             <a href="main.php">ГЛАВНАЯ</a>
             <a href="vote.php">ГОЛОСОВАНИЕ</a>
-            <!-- <a href="project.php">О ПРОЕКТЕ</a> -->
-            <!-- <a href="about.php">О НАС</a> -->
+       
             <a href="contact.php">КОНТАКТЫ</a>
         </div>
 
@@ -61,10 +46,3 @@
 </header>
 
 
-
-<!-- <nav>
-            <ul>
-                <li><a href="index.php">Главная</a></li>
-                <li><a href="catalog.php">Магазин</a></li>
-            </ul>
-        </nav> -->
