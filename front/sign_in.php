@@ -66,6 +66,7 @@
 
     </div>
 
+    <script src="../js/sign_in.js" defer></script>
 </body>
 
 </html>

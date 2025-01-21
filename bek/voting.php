@@ -21,20 +21,22 @@ $id_temple = intval($_POST['id_temple']); // ID храма, который пе�
 $id_user = $_SESSION['user_id']; // ID пользователя из сессии
 
 try {
+    // Подготовка вызова процедуры
+    $stmt = $pdo->prepare("CALL CheckUserVote(:id_user, :id_temple)");
+    $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+    $stmt->bindParam(':id_temple', $id_temple, PDO::PARAM_INT);
+    $stmt->execute();
 
-    $checkSql = "SELECT COUNT(*) FROM voting WHERE id_user = :id_user AND id_temple = :id_temple";
-    $checkStmt = $pdo->prepare($checkSql);
-    $checkStmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);
-    $checkStmt->bindParam(':id_temple', $id_temple, PDO::PARAM_INT);
-    $checkStmt->execute();
+    // Получение результата
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $voteCount = $result['voteCount'];
 
-    $count = $checkStmt->fetchColumn();
-
-    if ($count > 0) {
+    if ($voteCount > 0) {
         echo json_encode(['success' => false, 'message' => 'Вы уже проголосовали за этот храм.']);
         exit;
     }
 
+    // Записываем голос
     $sql = "INSERT INTO voting (id_user, id_temple) VALUES (:id_user, :id_temple)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id_user', $id_user, PDO::PARAM_INT);

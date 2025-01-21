@@ -5,7 +5,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = (int) $_GET['id'];
 
     // SQL-запрос для поиска храма по ID
-    $stmt = $pdo->prepare("SELECT * FROM lost_tempels WHERE id = :id");
+    $stmt = $pdo->prepare("CALL GetTempleById(:templeId)");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 

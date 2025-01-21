@@ -32,22 +32,16 @@ function init() {
     map.controls.remove('searchControl');
     map.controls.remove('trafficControl');
     map.controls.remove('typeSelector');
-    // map.controls.remove('fullscreenControl');
-    // map.controls.remove('zoomControl');
-    // map.controls.remove('rulerControl');
 
-    // Получаем данные из базы данных
     fetch('../bek/getInfoToPlacemark.php')
         .then(response => response.json())
         .then(data => {
-            console.log(data); // Выводим данные в консоль для проверки
             data.forEach(item => {
                 if (item['координаты']) {
                     console.log(item['координаты'])
                     let coordinates = item['координаты'].trim().split(',').map(Number);
                     let placemark = new ymaps.Placemark(coordinates, {
-                        // balloonContent: `
-                        //     <strong>${item['название']}</strong><br>${item['краткое_описание']}`
+
                     }, {
                         iconLayout: 'default#image',
                         iconImageHref: '../styles/images/купол4.png',
@@ -57,23 +51,14 @@ function init() {
                         id: item['id']
 
                     });
-                    // console.log([item['название']]);
-                    // console.log([item['id']]);
+
                     map.geoObjects.add(placemark);
-
                     placemarks.push([item['id'], placemark]);
-                    // Добавляем обработчик клика на метку
                     placemark.events.add('click', () => {
-
-
-                        // console.log([item['id']]);
-                        ssId = item['id']; // Сохраняем ID храма
+                        ssId = item['id'];
                         console.log(ssId);
-                        openModal(placemark.options.get('id')); // Открываем модальное окно
+                        openModal(placemark.options.get('id'));
                     });
-
-
-
                 }
                 else {
                     console.warn('Координаты отсутствуют для элемента:', item);

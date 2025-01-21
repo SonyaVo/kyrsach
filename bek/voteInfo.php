@@ -11,7 +11,7 @@ $user_id = $_SESSION['user_id'];
 $temple_id = isset($_GET['id']) ? intval($_GET['id']) : 0; // Получаем ID храма из GET-запроса
 
 try {
-    // Подготовка SQL-запроса для проверки, голосовал ли пользователь
+    
     $query = "
         SELECT COUNT(*) AS user_voted
         FROM voting

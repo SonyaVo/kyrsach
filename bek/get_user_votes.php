@@ -1,26 +1,18 @@
 <?php
 session_start();
-include 'db.php'; 
+include 'db.php';
 
 if (!isset($_SESSION['user_id'])) {
-    echo json_encode(['success' => false, 'message' => 'User not logged in.']);
+    echo json_encode(['success' => false, 'message' => 'Пользователь не зарегестрирован.']);
     exit;
 }
 
 $user_id = $_SESSION['user_id'];
 
 try {
- 
-    $query = "
-        SELECT lt.id, lt.название, COUNT(v.id) AS vote_count 
-FROM lost_tempels lt 
-LEFT JOIN voting v ON lt.id = v.id_temple AND v.id_user = ?
-GROUP BY lt.id
-HAVING vote_count > 0
-    ";
 
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(1, $user_id, PDO::PARAM_INT);
+    $stmt = $pdo->prepare("CALL GetUserVotedTemples(:user_id)");
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
 
     $churches = $stmt->fetchAll(PDO::FETCH_ASSOC);

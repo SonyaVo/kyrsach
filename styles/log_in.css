@@ -26,7 +26,22 @@ body {
 
 
 form {
-  width: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.text-centre p{
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.text-centre {
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;

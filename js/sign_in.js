@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById('registrationForm');
     const messageContainer = document.getElementById('messageContainer');
@@ -17,8 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
             // Обновляем содержимое сообщения
             messageContainer.innerHTML = `<p>${data.message}</p>`;
             if (data.success) {
-                // Если регистрация успешна, можно перенаправить или очистить форму
-                form.reset();
+                // Если регистрация успешна, скрываем форму и показываем ссылку на авторизацию
+                form.style.display = 'none'; // Скрываем форму
+                messageContainer.innerHTML += `<p сlass="avt"><a href="log_in.php">Авторизация</a></p>`; // Добавляем ссылку
             }
         })
         .catch(error => {

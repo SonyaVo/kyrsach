@@ -31,8 +31,7 @@ session_start(); // Начало сессии
     <main>
         <ul id="temple-list"></ul>
     </main>
-    <footer>
-    </footer>
+    <?php include 'footer.php'; ?>
     <script src="../js/list_vote.js" defer></script>
 
 </body>

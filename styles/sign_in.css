@@ -14,7 +14,7 @@ body{
   margin-bottom: 67px;
     background-color: #ffffff;
     width: 80vh;
-    height: 759px;
+    height: 700px;
     color: #000;
     display: flex;
   flex-direction: column;
@@ -92,6 +92,17 @@ label{
   margin: 0;
   border: 2px solid #613A3D;
 }
+#messageContainer{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center;
+}
+ p a{
+  width: 100%;
+  text-align: center;
+}
 
 
 /* Добавьте это в ваш файл sign_in.css */
@@ -117,7 +128,7 @@ a{
   letter-spacing: 1.55%;
   font-size: 20px;
   font-weight: 500;
-  width: 224px;
+ 
   
   margin-top: 36px;
   margin-bottom: 0;
@@ -199,6 +210,7 @@ a{
     
   }
 }
+
 
 
 @media (max-width: 700px) {

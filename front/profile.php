@@ -27,25 +27,20 @@
             <div class="info" id="result"></div>
             
             <div class="fun">
-                <!-- <a href="../bek/log_out.php">ИЗМЕНИТЬ ДАННЫЕ</a> -->
+            
                 <a href="../bek/log_out.php" class="logout-link">ВЫЙТИ</a>
             </div>
 
 
         </div>
         <div class="fun1">
-                <!-- <a href="../bek/log_out.php">ИЗМЕНИТЬ ДАННЫЕ</a> -->
                 <a href="../bek/log_out.php" class="logout-link">ВЫЙТИ</a>
             </div>
-        <!-- <div ></div> -->
         <ul class="vote" id="vote"></ul>
     
     </main>
 
-
-    <footer>
-
-    </footer>
+    <?php include 'footer.php'; ?>
     <script src="../js/profile.js" defer></script>
 </body>
 

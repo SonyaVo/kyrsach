@@ -3,7 +3,7 @@ require 'db.php'; // Подключение к базе данных
 
 try {
     // SQL-запрос для получения всех храмов
-    $stmt = $pdo->prepare("SELECT id, название FROM lost_tempels");
+    $stmt = $pdo->prepare("CALL GetTempleById(:templeId)");
     $stmt->execute();
 
     $temples = $stmt->fetchAll(PDO::FETCH_ASSOC);

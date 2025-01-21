@@ -34,11 +34,29 @@ footer {
   height: 120px;
   background-color: #613A3D;
   color: rgb(255, 255, 255);
-  /* display: flex;
+  display: flex;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 
+footer a{
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.text_main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  margin-top: 30px;
+  max-width: 1160px;
+}
+.text_main p{
+  font-size: 18px;
+  text-align: justify;
+}
 .logo {
 
   max-width: 100px;
