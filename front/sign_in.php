@@ -27,27 +27,28 @@
             <form id="registrationForm" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="form-label" for="surname">Фамилия</label>
-                    <input type="text" name="surname" id="surname" required>
+                    <input type="text" name="surname" id="surname" required  placeholder="Петров">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="name">Имя</label>
-                    <input type="text" name="name" id="name" required>
+                    <input type="text" name="name" id="name" required placeholder="Петр">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="patronymic">Отчество</label>
-                    <input type="text" name="patronymic" id="patronymic">
+                    <input type="text" name="patronymic" id="patronymic" placeholder="Петрович">
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="phone">Номер телефона</label>
-                    <input type="phone" name="phone" id="phone" required>
+                    <input type="phone" name="phone" id="phone" required required 
+                    placeholder="89998887766"  >
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="email">Почта</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required placeholder="petrov@yandex.ru">
                 </div>
 
                 <div class="form-group">

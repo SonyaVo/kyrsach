@@ -2,9 +2,10 @@
 session_start();
 
 require 'db.php';
+$sql ="CALL GetTemplesWithVoteCount()";
 
 try {
-    $stmt = $pdo->prepare("CALL GetTemplesWithVoteCount()");
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
     $temples = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -2,7 +2,7 @@
 .search-form {
   width: 100%;
   max-width: 1160px;
-  /* width: 1200px; */
+
   margin: auto;
   margin-top: 50px;
   display: flex;
@@ -58,7 +58,7 @@
 
 .search-form {
   position: relative;
-  /* Убедитесь, что родительский элемент имеет позиционирование */
+ 
 }
 
 .autocomplete-suggestions {
@@ -79,7 +79,6 @@
 
 
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 1400px) {
   .cont_main{
     margin: 20px 100px;

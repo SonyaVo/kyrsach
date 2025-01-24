@@ -9,9 +9,11 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
+$sql = "CALL GetUserVotedTemples(:user_id)";
+
 try {
 
-    $stmt = $pdo->prepare("CALL GetUserVotedTemples(:user_id)");
+    $stmt = $pdo->prepare($sql );
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
 

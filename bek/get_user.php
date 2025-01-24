@@ -5,9 +5,9 @@ require 'db.php';
 header('Content-Type: application/json; charset=utf-8');
 if (isset($_SESSION['user_id'])) {
     $userId = (int)$_SESSION['user_id'];
-
+    $sql = "CALL GetUserById(:id)";
     try {
-        $stmt = $pdo->prepare('CALL GetUserById(:id)');
+        $stmt = $pdo->prepare($sql );
         $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
         $stmt->execute();
 

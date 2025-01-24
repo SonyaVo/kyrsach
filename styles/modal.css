@@ -1,4 +1,4 @@
-/* модальное окно */
+
 
 .infoModal {
   margin: 0;
@@ -123,14 +123,14 @@
 
 .infoModal .vote button:hover {
   background-color: #7A4B4E;
-  /* Цвет фона при наведении */
+
   transform: scale(1.05);
-  /* Увеличение кнопки при наведении */
+
 }
 
 .infoModal .vote button:active {
   transform: scale(0.95);
-  /* Уменьшение кнопки при нажатии */
+
 }
 
 .infoModal .vote .notAut {

@@ -1,8 +1,8 @@
 <?php
 require 'db.php'; 
 try {
-
-    $stmt = $pdo->prepare("CALL GetTempleById(:templeId)");
+    $sql = "CALL GetFeedback();"; 
+    $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
     $temples = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -13,7 +13,6 @@ try {
         echo json_encode(['success' => false, 'message' => 'Храмы не найдены.']);
     }
 } catch (PDOException $e) {
-   
     error_log($e->getMessage());
     echo json_encode(['success' => false, 'message' => 'Произошла ошибка при выполнении запроса.']);
 }

@@ -1,9 +1,9 @@
 <?php
 
-$host = getenv('DB_HOST') ?: 'localhost'; 
-$db_name = getenv('DB_NAME') ?: 'lost_temple'; 
-$db_user = getenv('DB_USER') ?: 'lost_temple'; 
-$db_password = getenv('DB_PASSWORD') ?: 'lost_temple'; 
+$host = 'localhost'; 
+$db_name =  'lost_temple'; 
+$db_user =  'lost_temple'; 
+$db_password ='lost_temple'; 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $db_user, $db_password);

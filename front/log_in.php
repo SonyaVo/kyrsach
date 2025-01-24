@@ -21,12 +21,12 @@
         <h1>АВТОРИЗАЦИЯ</h1>
 
         <div class="text-centre">
-            <div id="messageContainer"></div> <!-- Контейнер для сообщений -->
+            <div id="messageContainer"></div> 
 
             <form id="loginForm" method="POST">
                 <div class="form-group">
                     <label for="phone">Телефон:</label>
-                    <input type="phone" name="phone" id="phone" required>
+                    <input type="phone" name="phone" id="phone" required placeholder="89998887766">
                 </div>
                 <div class="form-group">
                     <label for="password">Пароль:</label>

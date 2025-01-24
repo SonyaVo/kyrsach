@@ -1,6 +1,6 @@
 <?php session_start(); // Начало сессии ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -21,9 +21,9 @@
     <main>
         <div class="profile">
             <div class="image-container">
-                <img src="path/to/your/image.jpg" alt="Описание изображения" width="359" height="324">
+                <img src="../styles/images/user.png" alt="Описание изображения" width="359" height="324">
             </div>
-            <!-- <h1>Личный кабинет</h1> -->
+        
             <div class="info" id="result"></div>
             
             <div class="fun">
@@ -37,6 +37,9 @@
                 <a href="../bek/log_out.php" class="logout-link">ВЫЙТИ</a>
             </div>
         <ul class="vote" id="vote"></ul>
+
+        <div class="feedback" id="feedback"></div>
+
     
     </main>
 

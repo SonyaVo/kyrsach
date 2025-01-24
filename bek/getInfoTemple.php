@@ -7,10 +7,11 @@ if (!isset($_GET['id']) || !filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
 }
 
 $id = intval($_GET['id']); 
+$sql = "CALL GetTempleById(:templeId)";
 
 try {
 
-    $stmt = $pdo->prepare("CALL GetTempleById(:templeId)");
+    $stmt = $pdo->prepare(query: $sql);
     $stmt->bindParam(':templeId', $id, PDO::PARAM_INT);
     $stmt->execute();
 

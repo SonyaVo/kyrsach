@@ -9,7 +9,7 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
     })
     .then(response => response.text())
     .then(data => {
-        // Отображаем сообщение об успешной отправке
+        
         document.getElementById('responseMessage').innerText = data;
         document.getElementById('responseMessage').style.display = 'block';
         this.reset(); // Сбрасываем форму

@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($phone) || empty($password)) {
         $response['message'] = "Телефон и пароль обязательны.";
     } else {
-        $query = $pdo->prepare("CALL GetUser(:phone)");
+
+        $sql="CALL GetUser(:phone)";
+        $query = $pdo->prepare(query:  $sql);
         $query->bindParam(':phone', $phone, PDO::PARAM_STR);
         $query->execute();
         $user = $query->fetch(PDO::FETCH_ASSOC);

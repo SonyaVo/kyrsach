@@ -25,6 +25,7 @@
         <div class="nav">
             <a href="main.php">ГЛАВНАЯ</a>
             <a href="vote.php">ГОЛОСОВАНИЕ</a>
+            <a href="feedback.php">ВОПРОСЫ</a>
             <a href="contact.php">КОНТАКТЫ</a>
         </div>
         <div class="cabinet">

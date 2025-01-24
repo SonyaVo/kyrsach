@@ -2,7 +2,8 @@
 require 'db.php'; 
 try {
 
-    $stmt = $pdo->prepare("CALL GetTempleById(:templeId)");
+    $sql = "SELECT * FROM lost_tempels"; 
+    $stmt = $pdo->prepare(  $sql);
     $stmt->execute();
 
     $temples = $stmt->fetchAll(PDO::FETCH_ASSOC);

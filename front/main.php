@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
-    <title>Утраченные храмы</title>
+    <title>Святыни Москвы</title>
 
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/search.css">
@@ -90,6 +90,9 @@
                     <p>Не работает голосование?<br>
                         Есть идеи или предложения?<br>
                         Оставляйте контакты и мы обязательно с<br>Вами свяжемся!</p>
+
+                
+                       
                     <div class="responseMessage" id="responseMessage" style="display:none;"></div>
                 </div>
 
@@ -120,6 +123,8 @@
                         <textarea name="message" id="message" cols="30" rows="10" placeholder="Введите сообщение"
                             required></textarea>
                     </div>
+
+
                     <input class="btn" type="submit" value="Отправить">
                 </form>
             </div>

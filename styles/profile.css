@@ -33,17 +33,16 @@ main {
   max-width: 324px;
   max-height: 324px;
   height: 100%;
-  background-color: #d39292;
+  background-color: #acacac;
 
 }
 
 .image-container img {
   max-width: 100%;
-  /* Ограничиваем ширину изображения */
   max-height: 100%;
-  /* Ограничиваем высоту изображения */
+
   display: block;
-  /* Убираем пробелы под изображением */
+
 }
 
 .profile {
@@ -60,6 +59,7 @@ main {
 ul h4 {
   text-align: right;
 }
+
 .fun1 {
   display: none;
 }
@@ -180,6 +180,7 @@ ul h4 {
     width: 180%;
 
   }
+
   .profile .fun {
     margin-left: 200px;
 
@@ -303,7 +304,7 @@ ul h4 {
 
   .profile .info {
     margin-left: 0px;
-}
+  }
 
 
   .fun1 a {
@@ -314,6 +315,7 @@ ul h4 {
     color: #613A3D;
 
   }
+
   .profile .user-info strong {
 
     font-size: 13px;
@@ -324,7 +326,7 @@ ul h4 {
 
   }
 
- 
+
 }
 
 
@@ -339,6 +341,7 @@ ul h4 {
 
     width: 80%;
   }
+
   profile .info {
     margin-left: 0;
     width: 100%;
@@ -353,9 +356,10 @@ ul h4 {
     font-size: 16px;
     width: 80%;
   }
+
   .image-container {
     max-height: 254px;
-    
-  
+
+
   }
 }

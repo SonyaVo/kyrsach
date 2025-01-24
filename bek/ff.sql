@@ -1,3 +1,13 @@
+SELECT `message` 
+FROM `feedback` 
+WHERE email = (
+    SELECT email 
+    FROM users 
+    WHERE id = 2
+) 
+AND answer IS NOT NULL;
+
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const messageContainer = document.getElementById('messageContainer');
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Предотвращаем стандартное поведение формы
+        event.preventDefault(); 
 
         const formData = new FormData(form);
 
@@ -14,10 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.json())
         .then(data => {
-            // Обновляем содержимое сообщения
+          
             messageContainer.innerHTML = `<p>${data.message}</p>`;
             if (data.success) {
-                // Если авторизация успешна, перенаправляем на главную страницу
                 window.location.href = 'main.php';
             }
         })

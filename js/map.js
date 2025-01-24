@@ -1,20 +1,19 @@
-let center = [55.7558, 37.6173]; // Центр карты (Москва)
+let center = [55.7558, 37.6173]; 
 let map;
 let ssId = 0;
-let isAuthenticated = false; // Переменная для хранения статуса авторизации
-let placemarks = []; // Инициализация массива меток
+let isAuthenticated = false; 
+let placemarks = []; 
 
 const modal = document.getElementById('infoModal');
 const overlay = document.getElementById('modalOverlay');
 const modalContent = document.getElementById('modalContent');
 const vote = document.getElementById('vote');
 
-// Функция для проверки авторизации
 function checkAuthentication() {
     return fetch('../bek/isAut.php')
         .then(response => response.json())
         .then(data => {
-            isAuthenticated = data.isAuthenticated; // Сохраняем статус авторизации
+            isAuthenticated = data.isAuthenticated; 
         })
         .catch(err => {
             console.error('Ошибка при проверке авторизации:', err);
@@ -27,7 +26,6 @@ function init() {
         zoom: 13
     });
 
-    // Удаляем ненужные элементы управления
     map.controls.remove('geolocationControl');
     map.controls.remove('searchControl');
     map.controls.remove('trafficControl');
@@ -70,15 +68,14 @@ function init() {
         .catch(error => console.error('Ошибка:', error));
 }
 
-// Функция для открытия модального окна
-// ... (previous code remains unchanged)
+
 
 function openModal(id) {
     fetch(`../bek/getInfoTemple.php?id=${id}`)
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                // Если данные успешно получены, отображаем их в модальном окне
+            
                 modalContent.innerHTML = `
                     <header>
                         <h1>${data.data.название || 'Название не указано'}</h1>
@@ -104,12 +101,12 @@ function openModal(id) {
                     </div>
                 `;
 
-                // Проверяем, проголосовал ли пользователь
+              
                 checkUserVote(id).then(hasVoted => {
                     if (hasVoted) {
                         vote.innerHTML = `<p>Вы уже проголосовали за восстановление этого храма!</p>`;
                     } else {
-                        // Добавляем кнопку, если пользователь авторизован
+                       
                         if (isAuthenticated) {
                             vote.innerHTML = `
                                 <p>Проголосуйте за восстановление храма! Ваш голос очень важен для нас!</p>
@@ -119,10 +116,9 @@ function openModal(id) {
                         }
                     }
 
-                    modal.style.display = 'block'; // Показываем модальное окно
-                    overlay.style.display = 'block'; // Показываем оверлей
+                    modal.style.display = 'block'; 
+                    overlay.style.display = 'block';
 
-                    // Обработчик клика на кнопку голосования
                     const voteButton = document.getElementById('voteButton');
                     if (voteButton) {
                         voteButton.addEventListener('click', () => {
@@ -138,18 +134,18 @@ function openModal(id) {
                                     if (!response.ok) {
                                         throw new Error('Сеть ответила с ошибкой: ' + response.status);
                                     }
-                                    return response.json(); // Парсим ответ как JSON
+                                    return response.json(); 
                                 })
                                 .then(data => {
-                                    console.log('Ответ от сервера:', data); // Логируем ответ от сервера
+                                    console.log('Ответ от сервера:', data); 
                                     if (data.success) {
                                         //alert(data.message); // Показываем сообщение об успешном голосовании
                                         const successMessage = document.createElement('p');
                                         vote.innerHTML = `Ваш голос успешно учтен!`;
-                                        modalContent.appendChild(successMessage); // Добавляем сообщение в модальное окно
-                                        voteButton.remove(); // Удаляем кнопку голосования
+                                        modalContent.appendChild(successMessage); 
+                                        voteButton.remove(); 
                                     } else {
-                                        alert(data.message); // Показываем сообщение об ошибке
+                                        alert(data.message); 
                                     }
 
                                 })
@@ -162,18 +158,18 @@ function openModal(id) {
                 });
             } else {
                 modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';
-                modal.style.display = 'block'; // Показываем модальное окно с ошибкой
-                overlay.style.display = 'block'; // Показываем оверлей
+                modal.style.display = 'block'; 
+                overlay.style.display = 'block'; 
             }
         })
         .catch(err => {
             modalContent.innerHTML = '<p>Ошибка загрузки данных.</p>';
-            modal.style.display = 'block'; // Показываем модальное окно с ошибкой
-            overlay.style.display = 'block'; // Показываем оверлей
+            modal.style.display = 'block'; 
+            overlay.style.display = 'block'; 
         });
 }
 
-// Функция для проверки, проголосовал ли пользователь
+
 async function checkUserVote(templeId) {
     try {
         const response = await fetch(`../bek/voteInfo.php?id=${templeId}`);
@@ -183,29 +179,27 @@ async function checkUserVote(templeId) {
 
         const data = await response.json();
 
-        // Проверяем, есть ли информация о голосовании
         if (data.success) {
-            // Предполагаем, что в data.data[0] есть поле user_voted
-            return data.data[0].user_voted > 0; // Возвращаем true, если пользователь уже голосовал
+        
+            return data.data[0].user_voted > 0; 
         } else {
-            return false; // Если нет данных, возвращаем false
+            return false; 
         }
     } catch (error) {
         console.error('Ошибка при получении данных о голосовании:', error);
-        return false; // В случае ошибки возвращаем false
+        return false;
     }
 }
 
-// Проверяем авторизацию при загрузке страницы
+
 checkAuthentication().then(() => {
     ymaps.ready(init);
 });
 
-// Закрываем модальное окно при нажатии вне его
 window.onclick = function (event) {
     if (event.target == overlay) {
         modal.style.display = 'none';
-        overlay.style.display = 'none'; // Скрываем оверлей
+        overlay.style.display = 'none'; 
     }
 }
 
